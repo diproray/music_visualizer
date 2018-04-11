@@ -8,7 +8,9 @@ __A C++ game of Flappy Bird, using [openFrameworks](http://openframeworks.cc/) a
 The C++ application will be similar to Flappy Bird. 
 There is a character, the bird, which has to be saved from hitting tubes as it "jumps" through the holes in these tubes. Attached below is a simple gif depiction of Flappy Bird.  
   
-![Simple Depiction of a Flappy Bird game window](https://raw.githubusercontent.com/mchakravarty/lazy-lambda/master/images/LazyLambdaLoop.gif)
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/mchakravarty/lazy-lambda/master/images/LazyLambdaLoop.gif">
+</p>
   
 Implementing this basic Flappy Bird game will require thinking about:
 1. **Superimposition of the tubes over the background layout.** I intend to let the background be "built" in the application, rather than an image.

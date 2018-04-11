@@ -43,3 +43,7 @@ My development environment will be [Xcode](https://developer.apple.com/xcode/).
 2. **Week 2: Running, Visually Pleasing Prototype of the game mentioned in Decription**
 3. **Week 3: Tweaking Code for Layout Customizations, and Adding Code for non-trivial, but non-difficult, additional features**
 4. **[Final] Week 4: Achieve DGB. Ensure extensive documentation and project file structures. Polish any rough game details.**
+
+## Relevant Personal Background
+1. Significant programming experience in C++ (approx. 2 years)
+2. Knowledge of stochastic gradient descent and popular ML techniques (courtesy of [CS 361](https://courses.engr.illinois.edu/cs361/sp2018/))

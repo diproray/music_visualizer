@@ -1,8 +1,8 @@
-# CS 126 Project Proposal: Flappy Illini
+# CS 126 Project Proposal: Flappy Illini :large_orange_diamond: :baby_chick: :large_blue_diamond:
 A C++ application remake of the iconic [Flappy Bird](https://en.wikipedia.org/wiki/Flappy_Bird)! :bird:
 
 ## Summary (or tl;dr)
-__A C++ clone of Flappy Bird, using [openFrameworks](http://openframeworks.cc/) and [ofBox2d](https://github.com/vanderlin/ofxBox2d) (and possibly, [Allegro](http://liballeg.org/)). The project will include special features beyond a basic Flappy Bird game such as: coin collection, level demarcations, game layout customizations, and hopefully [dynamic game difficulty balancing (DGB)](https://en.wikipedia.org/wiki/Dynamic_game_difficulty_balancing) and split-screen multiplayer mode.__
+__A C++ game of Flappy Bird, using [openFrameworks](http://openframeworks.cc/) and [ofBox2d](https://github.com/vanderlin/ofxBox2d) (and possibly, [Allegro](http://liballeg.org/)). The project will include special features beyond a basic Flappy Bird game such as: coin collection, level demarcations, game layout customizations, and hopefully [dynamic game difficulty balancing (DGB)](https://en.wikipedia.org/wiki/Dynamic_game_difficulty_balancing) and split-screen multiplayer mode.__
 
 ## Description
 The C++ application will be similar to Flappy Bird. 

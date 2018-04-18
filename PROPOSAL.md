@@ -1,3 +1,27 @@
+# CS 126 Project Proposal: Music Visualization
+## By Dipro Ray
+A C++ application that loads stored music and creates visualizations about them, revealing technical aspects of the music in a very visually appealing manner.
+
+## Description
+This application is suited to the graphics capabilities of openFrameworks. I plan to use various 2d shapes and figures, graphs and maybe, 3d figures too. The application will provide a nice GUI allowing for customization in colors, shapes, different technical aspects of the sound being used. Here comes the necessity of the library I will be using, [Essentia](http://essentia.upf.edu/documentation/#). It allows for extracting desired technical qualities of the audio files in a variety of way, allowing different kinds of visualization and analysis to be done.
+
+## Libraries
+1. [openFrameworks](http://openframeworks.cc/): The framework used to build the music environment and GUIs.
+2. [Essentia](http://essentia.upf.edu/documentation/#): To extract float values for different qualities of the music OR another major music analysis library for C++
+3. ofXAddons: ofXGui, ofX 3D Graphics
+
+## Rough Checkpoints
+1. Week 1 Code Review: Implementation of 3 or 4 different types of visualizations with a simple GUI for controlling features of these visualizations.
+2. Week 2 Code Review: Comparative Visualizations of different technical aspects of the audio files, using Essentia. Nicer GUI - more visually pleasing, sliders to control different values.
+3. Slightly Ambitious Goal (to be worked on in the final week): Combine music visualizations with particle visualizations to simulate how particles would vibrate naturally in the presence of such music. Might use Box2D library here!
+
+
+------------------------------------------------------
+------------------------------------------------------
+------------------------------------------------------
+# Old Proposal
+__I shall not be working on this project due to technical difficulties I have been facing in setting up the required libraries, such as Allegro. I spent quite a few hours in Office Hours trying to get it to work but there is some problem for Allegro on OS X, so I am not able to run it. As I am losing out on precious time for the project, I am choosing to not proceed with this project.__
+
 # CS 126 Project Proposal: Flappy Illini :large_orange_diamond: :baby_chick: :large_blue_diamond:
 A C++ application remake of the iconic [Flappy Bird](https://en.wikipedia.org/wiki/Flappy_Bird)! :bird:
 

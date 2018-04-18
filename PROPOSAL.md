@@ -3,12 +3,19 @@
 A C++ application that loads stored music and creates visualizations about them, revealing technical aspects of the music in a very visually appealing manner.
 
 ## Description
-This application is suited to the graphics capabilities of openFrameworks. I plan to use various 2d shapes and figures, graphs and maybe, 3d figures too. The application will provide a nice GUI allowing for customization in colors, shapes, different technical aspects of the sound being used. Here comes the necessity of the library I will be using, [Essentia](http://essentia.upf.edu/documentation/#). It allows for extracting desired technical qualities of the audio files in a variety of way, allowing different kinds of visualization and analysis to be done.
+This application is suited to the graphics capabilities of openFrameworks. I plan to use various 2d shapes and figures, graphs and maybe, 3d figures too. The application will provide a nice GUI allowing for customization in colors, shapes, different technical aspects of the sound being used. Here comes the necessity of the library I will be using, [Essentia](http://essentia.upf.edu/documentation/#) (I may use the openFrameworks add-on for Essentia instead of the library itself). It allows for extracting desired technical qualities (Perlin noise, time waveform, beats rate) of the audio files in a variety of way, allowing different kinds of visualization and analysis to be done.
 
 ## Libraries
 1. [openFrameworks](http://openframeworks.cc/): The framework used to build the music environment and GUIs.
 2. [Essentia](http://essentia.upf.edu/documentation/#): To extract float values for different qualities of the music OR another major music analysis library for C++
 3. ofXAddons: ofXGui, ofX 3D Graphics
+
+## Expected Features
+1. A few visualizations (graph-based, textures etc.) based on the Perlin Noise of the music.
+2. A visual display of the input and output signals of the Fast Fourier Transform on audio files in real-time (audio to be passed in through the microphone). This will make use of the ofxFFT addon of openFrameworks.
+3. A nice GUI for using all visualization and analysis features as a stand-alone application.
+4. (Hopefully) 3D visualizations of various aspects of the sound.
+5. (Ambitious Goal) Combine music visualizations with particle visualizations to simulate how particles would vibrate naturally in the presence of such music.
 
 ## Rough Checkpoints
 1. Week 1 Code Review: Implementation of 3 or 4 different types of visualizations with a simple GUI for controlling features of these visualizations.

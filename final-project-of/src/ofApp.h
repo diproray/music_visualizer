@@ -7,6 +7,13 @@
  */
 class ofApp : public ofBaseApp {
     
+    enum ApplicationState {
+        MENU,
+        MOVING_GRAPH_VIZ
+    };
+    
+    ApplicationState current_state_; // this variable tracks the current state of the application
+    
     ofSoundPlayer sound_player_; // the sound player for the music to be visualized
     
     ofTrueTypeFont text_font_loader_; // the TTF file loader for
@@ -14,10 +21,12 @@ class ofApp : public ofBaseApp {
     
     /* ***** Moving Graph Visualizer resources ***** */
     
-    static const int kNumberOfBands_ = 256;  // Number of bands in the spectrum
+    bool isMovingGraphInitialized; // Tracks whether resources have already been set up for the moving graph visualization
     
-    float spectrum_values_array_[kNumberOfBands_]; // Array storing
-                                                   // smoothed spectrum float values
+    int number_of_bands_;  // Number of bands in the spectrum
+    
+    std::vector<float> spectrum_values_vector_; // Vector storing
+                                                    // smoothed spectrum float values
     
     float graph_radius_;  // Graph radius parameter
     
@@ -27,15 +36,16 @@ class ofApp : public ofBaseApp {
     
     int band_index_for_particle_velocity_; // Band index in spectrum that affects the particle velocity value
     
-    static const int kNumberOfParticles_ = 300; // Number of graph particles
+    int total_number_of_particles_; // Number of graph particles
     
-    float particle_offset_x_axis_[kNumberOfParticles_]; // Array storing offsets for Perlin Noise calculation of particles' x-positions
+    std::vector<float> particle_offset_x_axis_vector_; // Vector storing offsets for
+                                                       // Perlin Noise calculation of particles' x-positions
     
-    float particle_offset_y_axis_[kNumberOfParticles_]; // Array storing offsets for Perlin Noise calculation of particles' y-positions
+    std::vector<float> particle_offset_y_axis_vector_; // Vector storing offsets for Perlin Noise calculation of particles' y-positions
     
-    ofPoint particles[kNumberOfParticles_]; // Moving graph's particles positions
+    std::vector<ofPoint> particles_vector_; // Moving graph's particles positions
     
-    float current_time_;        // Current time value, used for computing delta (time)
+    float current_time_; // Current time value, used for computing delta (time)
     
     /* ********************************************** */
     
@@ -64,6 +74,12 @@ class ofApp : public ofBaseApp {
          */
 		void keyPressed(int key);
     
+        /**
+         * This function is responsible for drawing the menu screen and displaying options
+         * for different visualizations.
+         */
+        void drawMenuAndOptions();
+    
         /* ***** Moving Graph Visualizer functions ***** */
     
         /**
@@ -87,6 +103,12 @@ class ofApp : public ofBaseApp {
          * equalizer bars.
          */
         void drawEqualizerBarsAndMovingGraph();
+    
+        /**
+         * The following function deallocates allocateed resources to
+         * the moving graph visualizer.
+         */
+        void deallocateResourcesForMovingGraphVisualizer();
     
         /* ********************************************** */
     

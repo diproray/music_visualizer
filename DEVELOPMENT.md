@@ -22,3 +22,6 @@
 8. Committed my second visualizations code to the repo! :D
 9. Back to working on FFT transform and Visualization. Made progress learning how to use the ofxFft addon for openFrameworks. Thinking about taking audio input in real time through the microphone.
 10. Solved my separation into classes problem. Thankfully, my code was pretty modular so separating them into classes did not take much time. The 3D Visualizer inherits from the 2D Visualizer too!
+11. Got a real-time FFT Visualization of time and frequency waveform working but its execution appears to be buggy, though I don't understand what's wrong with my code. For now, I have a simple FFT frequency waveform of real time audio input ready.
+12. Added toggling mode between lines and triangle for Moving 2D graph visualization.
+

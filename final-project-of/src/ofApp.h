@@ -9,7 +9,8 @@ class ofApp : public ofBaseApp {
     
     enum ApplicationState {
         MENU,
-        MOVING_GRAPH_VIZ
+        MOVING_GRAPH_VIZ,
+        MOVING_3D_GRAPH_VIZ
     };
     
     ApplicationState current_state_; // this variable tracks the current state of the application
@@ -19,7 +20,7 @@ class ofApp : public ofBaseApp {
     ofTrueTypeFont text_font_loader_; // the TTF file loader for
                                       // the font the text is to be displayed in
     
-    /* ***** Moving Graph Visualizer resources ***** */
+    /* ***************** Moving Graph Visualizer resources ********************* */
     
     bool isMovingGraphInitialized; // Tracks whether resources have already been set up for the moving graph visualization
     
@@ -41,13 +42,37 @@ class ofApp : public ofBaseApp {
     std::vector<float> particle_offset_x_axis_vector_; // Vector storing offsets for
                                                        // Perlin Noise calculation of particles' x-positions
     
-    std::vector<float> particle_offset_y_axis_vector_; // Vector storing offsets for Perlin Noise calculation of particles' y-positions
+    std::vector<float> particle_offset_y_axis_vector_; // Vector storing offsets for
+                                                       // Perlin Noise calculation of particles' y-positions
     
     std::vector<ofPoint> particles_vector_; // Moving graph's particles positions
     
     float current_time_; // Current time value, used for computing delta (time)
     
-    /* ********************************************** */
+    /* ************************************************************************** */
+    
+    /* **************** Extra resources for Moving 3D Graph Visualization **************** */
+    
+    std::vector<ofColor> particle_colors_; // Vector storing the color of each particle
+    
+    std::vector<float> particle_offset_z_axis_vector_; // Vector storing offsets for
+                                                       // Perlin Noise calculation of particles' z-positions
+    
+    std::vector<float> particle_theta_value_vector_; // Vector storing theta (spherical angle) value
+                                                     // for each particle
+    
+    std::vector<float> particle_phi_value_vector_; // Vector storing phi (spherical angle) value
+                                                   // for each particle
+    
+    std::vector<float> particle_theta_offset_vector_; // Vector storing theta (spherical angle) offset
+                                                      // for each particle
+    
+    std::vector<float> particle_phi_offset_vector_; // Vector storing phi (spherical angle) offset
+                                                    // for each particle
+    
+    float delta_time_; // Float value that stores the change in time between updates
+    
+    /* *********************************************************************************** */
     
     
 	public:
@@ -80,7 +105,7 @@ class ofApp : public ofBaseApp {
          */
         void drawMenuAndOptions();
     
-        /* ***** Moving Graph Visualizer functions ***** */
+        /* ******************** Moving Graph Visualizer functions ******************** */
     
         /**
          * The following function initializes all the resources for the
@@ -110,7 +135,36 @@ class ofApp : public ofBaseApp {
          */
         void deallocateResourcesForMovingGraphVisualizer();
     
-        /* ********************************************** */
+        /* ************************************************************************************** */
+    
+        /* ******************** Extra functions for Moving 3D Graph Visualizer ******************** */
+    
+        /**
+         * The following function initializes all the extra resources for the
+         * moving 3D graph visualizer.
+         */
+        void initializeExtraResourcesForMoving3DGraphVisualizer();
+    
+        /**
+         * The following function updates all the extra values for
+         * the moving 3D graph visualizer.
+         */
+        void updateExtraValuesForMoving3DGraphVisualizer();
+    
+        /**
+         * The following function is responsible for drawing
+         * the 3D moving graph and associated
+         * equalizer bars.
+         */
+        void drawEqualizerBarsAndMoving3DGraph();
+    
+        /**
+         * The following function deallocates allocateed resources to
+         * the 3D moving graph visualizer.
+         */
+        void deallocateExtraResourcesForMoving3DGraphVisualizer();
+    
+        /* ************************************************************************************** */
     
         // The below functions are currently not being used.
     

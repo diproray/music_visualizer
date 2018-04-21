@@ -1,6 +1,6 @@
 //
 //  Moving2DGraphVisualizer.h
-//  myTestingApp
+//  final-project-diproray
 //
 //  Created by Dipro Ray on 4/20/18.
 //
@@ -42,7 +42,11 @@ class Moving2DGraphVisualizer {
     
             float delta_time_; // stores the last updated time change
     
+    
         public:
+    
+            int mode = 1; // display mode 1: lines, display mode 2: triangles
+            
             /* ******************** Moving Graph Visualizer important functions ******************** */
     
             /**

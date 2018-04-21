@@ -1,6 +1,6 @@
 //
 //  Moving3DGraphVisualizer.cpp
-//  myTestingApp
+//  final-project-diproray
 //
 //  Created by Dipro Ray on 4/20/18.
 //

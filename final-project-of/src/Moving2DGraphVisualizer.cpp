@@ -1,6 +1,6 @@
 //
 //  Moving2DGraphVisualizer.cpp
-//  myTestingApp
+//  final-project-of
 //
 //  Created by Dipro Ray on 4/20/18.
 //
@@ -161,6 +161,9 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
  */
 void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     
+    ofSetColor(0, 0, 0);
+    ofDrawBitmapString("Press C to switch display between lines and triangles visualizations.", 20, 20);
+    
     // NOTE: The values for drawing various objects are tuned for
     // a 1024 x 768 pixels window.
     
@@ -239,9 +242,17 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
                 ofSetColor(rand() % 255, rand() % 255, rand() % 255);
                 ofFill();
                 
-                ofDrawLine(particles_vector_[index_one], particles_vector_[index_two]); // First Visualization Mode
-                // ofDrawTriangle(particles[index_one], particles[index_two], particles[index_one + 1]); // Second Visualization Mode
-                
+                if (mode == 1) {
+                    
+                    ofDrawLine(particles_vector_[index_one], particles_vector_[index_two]); // First Visualization Mode
+                    
+                } else {
+                    
+                    ofDrawTriangle(particles_vector_[index_one], particles_vector_[index_two], particles_vector_[index_one + 1]);
+                    // Second Visualization Mode
+                    
+                }
+
             }
         }
     }

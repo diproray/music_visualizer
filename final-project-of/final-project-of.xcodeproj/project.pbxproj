@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24EEC1024DAA56F3F1468405 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 169F65290F5CD14C49A7D061 /* fft.cpp */; };
+		2C90521ED7C6EBA350D5CCE0 /* Moving2DGraphVisualizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B39F1E6BB4A72B6DF3BD1C0 /* Moving2DGraphVisualizer.cpp */; };
 		4B3A512A1B863B24C68593CD /* ofxButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 445A39D229DD56860BFC76AA /* ofxButton.cpp */; };
+		69F6C823D44C10D317D52051 /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12BCB047BB919C73304CCF41 /* ofxFFTLive.cpp */; };
 		6FA8731B3D8894CB8B866D7B /* ofxToggle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3109244E256FF432C2AB2438 /* ofxToggle.cpp */; };
 		7AB84618A0B9C0A71D1B86C4 /* ofxGuiGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A1AAA0CC33D83E09E594CB52 /* ofxGuiGroup.cpp */; };
 		8A674F105D9702940C3A1FAB /* ofxSlider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E708EF612FF6F3CE858A02BA /* ofxSlider.cpp */; };
 		A1AFA5868C30553AEF6C46A9 /* ofxBaseGui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A214F92F6596267DFA9C768D /* ofxBaseGui.cpp */; };
-		B48C7B0E208AFEC600D301FA /* Moving2DGraphVisualizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B48C7B0D208AFEC600D301FA /* Moving2DGraphVisualizer.cpp */; };
-		B48C7B11208AFED600D301FA /* Moving3DGraphVisualizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B48C7B10208AFED600D301FA /* Moving3DGraphVisualizer.cpp */; };
+		AC4988705CB00963B234E559 /* ofxFFTBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAA453563BC6E35849E06554 /* ofxFFTBase.cpp */; };
+		D62433FAEC7D57D21E43E872 /* ofxFFTFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B254597BCBF649658EFC481C /* ofxFFTFile.cpp */; };
 		D7D6D375D80AD3CBF82C2C64 /* ofxSliderGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0D57F95EC70AB77B5D11F3 /* ofxSliderGroup.cpp */; };
 		E0AFB0EC86E08095D404354D /* ofxLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B8849017CFF2E569F10D100 /* ofxLabel.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
+		FC0630A76A6A698E2458DF39 /* Moving3DGraphVisualizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61BADC3D27694689A3FE59D0 /* Moving3DGraphVisualizer.cpp */; };
 		FC14B138F37C26AF1BA7EFD7 /* ofxPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2059D1EE6B3C5334BE43749D /* ofxPanel.cpp */; };
 /* End PBXBuildFile section */
 
@@ -54,23 +58,30 @@
 /* Begin PBXFileReference section */
 		030364DAD4753E23D57E7EAC /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxButton.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
 		08899C6D22C85E4AE79990DC /* ofxGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGui.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxGui.h; sourceTree = SOURCE_ROOT; };
+		0B39F1E6BB4A72B6DF3BD1C0 /* Moving2DGraphVisualizer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Moving2DGraphVisualizer.cpp; path = src/Moving2DGraphVisualizer.cpp; sourceTree = SOURCE_ROOT; };
+		0FFFDE9DC69AEA5EB51DB5F8 /* fft.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = fft.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs/fft.h; sourceTree = SOURCE_ROOT; };
+		12BCB047BB919C73304CCF41 /* ofxFFTLive.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFFTLive.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src/ofxFFTLive.cpp; sourceTree = SOURCE_ROOT; };
 		1597797374FCDAF5B37E910F /* ofxPanel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxPanel.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxPanel.h; sourceTree = SOURCE_ROOT; };
+		169F65290F5CD14C49A7D061 /* fft.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = fft.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs/fft.cpp; sourceTree = SOURCE_ROOT; };
 		2059D1EE6B3C5334BE43749D /* ofxPanel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxPanel.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxPanel.cpp; sourceTree = SOURCE_ROOT; };
+		2428C0B9A055F7824B1E2F73 /* ofxFFTBase.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxFFTBase.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src/ofxFFTBase.h; sourceTree = SOURCE_ROOT; };
 		3109244E256FF432C2AB2438 /* ofxToggle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxToggle.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxToggle.cpp; sourceTree = SOURCE_ROOT; };
 		445A39D229DD56860BFC76AA /* ofxButton.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxButton.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxButton.cpp; sourceTree = SOURCE_ROOT; };
+		5D9E61EA9FCC5F737F3A14CC /* Moving2DGraphVisualizer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Moving2DGraphVisualizer.h; path = src/Moving2DGraphVisualizer.h; sourceTree = SOURCE_ROOT; };
+		61BADC3D27694689A3FE59D0 /* Moving3DGraphVisualizer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Moving3DGraphVisualizer.cpp; path = src/Moving3DGraphVisualizer.cpp; sourceTree = SOURCE_ROOT; };
 		6215511FAD2AF70E024A4C51 /* ofxLabel.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxLabel.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxLabel.h; sourceTree = SOURCE_ROOT; };
 		79AC0C2437B9328C5A975992 /* ofxGuiGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGuiGroup.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxGuiGroup.h; sourceTree = SOURCE_ROOT; };
+		7A4C90E6B3F601484E27188B /* Moving3DGraphVisualizer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Moving3DGraphVisualizer.h; path = src/Moving3DGraphVisualizer.h; sourceTree = SOURCE_ROOT; };
 		7B8849017CFF2E569F10D100 /* ofxLabel.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxLabel.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxLabel.cpp; sourceTree = SOURCE_ROOT; };
 		8945DA9E2ABA43836A513F3E /* ofxSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSlider.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxSlider.h; sourceTree = SOURCE_ROOT; };
 		8E0D57F95EC70AB77B5D11F3 /* ofxSliderGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSliderGroup.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxSliderGroup.cpp; sourceTree = SOURCE_ROOT; };
 		A1AAA0CC33D83E09E594CB52 /* ofxGuiGroup.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxGuiGroup.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxGuiGroup.cpp; sourceTree = SOURCE_ROOT; };
 		A214F92F6596267DFA9C768D /* ofxBaseGui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxBaseGui.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxBaseGui.cpp; sourceTree = SOURCE_ROOT; };
-		B48C7B0C208AFEC600D301FA /* Moving2DGraphVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Moving2DGraphVisualizer.h; path = ../../../myTestingApp/src/Moving2DGraphVisualizer.h; sourceTree = "<group>"; };
-		B48C7B0D208AFEC600D301FA /* Moving2DGraphVisualizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Moving2DGraphVisualizer.cpp; path = ../../../myTestingApp/src/Moving2DGraphVisualizer.cpp; sourceTree = "<group>"; };
-		B48C7B0F208AFED600D301FA /* Moving3DGraphVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Moving3DGraphVisualizer.h; path = ../../../myTestingApp/src/Moving3DGraphVisualizer.h; sourceTree = "<group>"; };
-		B48C7B10208AFED600D301FA /* Moving3DGraphVisualizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Moving3DGraphVisualizer.cpp; path = ../../../myTestingApp/src/Moving3DGraphVisualizer.cpp; sourceTree = "<group>"; };
+		B254597BCBF649658EFC481C /* ofxFFTFile.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFFTFile.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src/ofxFFTFile.cpp; sourceTree = SOURCE_ROOT; };
 		BA13C883DD5A6964EDD113BE /* ofxToggle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxToggle.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxToggle.h; sourceTree = SOURCE_ROOT; };
+		CAA453563BC6E35849E06554 /* ofxFFTBase.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxFFTBase.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src/ofxFFTBase.cpp; sourceTree = SOURCE_ROOT; };
 		CF202E1B411E2D187FCC352C /* ofxSliderGroup.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSliderGroup.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxSliderGroup.h; sourceTree = SOURCE_ROOT; };
+		D5757C8936C423EEBF3486E0 /* ofxFFTLive.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxFFTLive.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src/ofxFFTLive.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../CS_126/of_v0.9.8_osx_release/libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* final-project-ofDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "final-project-ofDebug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
@@ -81,6 +92,7 @@
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E708EF612FF6F3CE858A02BA /* ofxSlider.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxSlider.cpp; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxSlider.cpp; sourceTree = SOURCE_ROOT; };
 		EA32972B6E6E8A572C85180C /* ofxBaseGui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBaseGui.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src/ofxBaseGui.h; sourceTree = SOURCE_ROOT; };
+		FC60C3D95FD0C5BB9EB7C966 /* ofxFFTFile.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxFFTFile.h; path = ../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src/ofxFFTFile.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +107,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A2E5BCC3F86CB447BAEAEB2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2428C0B9A055F7824B1E2F73 /* ofxFFTBase.h */,
+				CAA453563BC6E35849E06554 /* ofxFFTBase.cpp */,
+				D5757C8936C423EEBF3486E0 /* ofxFFTLive.h */,
+				12BCB047BB919C73304CCF41 /* ofxFFTLive.cpp */,
+				FC60C3D95FD0C5BB9EB7C966 /* ofxFFTFile.h */,
+				B254597BCBF649658EFC481C /* ofxFFTFile.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		1B64B7957A22C4BDA1592DD4 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				0FFFDE9DC69AEA5EB51DB5F8 /* fft.h */,
+				169F65290F5CD14C49A7D061 /* fft.cpp */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		38D6D30992FE734203F60492 /* ofxFFT */ = {
+			isa = PBXGroup;
+			children = (
+				0A2E5BCC3F86CB447BAEAEB2 /* src */,
+				1B64B7957A22C4BDA1592DD4 /* libs */,
+			);
+			name = ofxFFT;
+			sourceTree = "<group>";
+		};
 		480A780D8D0308AE4A368801 /* ofxGui */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +180,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				38D6D30992FE734203F60492 /* ofxFFT */,
 				480A780D8D0308AE4A368801 /* ofxGui */,
 			);
 			name = addons;
@@ -169,10 +213,10 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
-				B48C7B0D208AFEC600D301FA /* Moving2DGraphVisualizer.cpp */,
-				B48C7B0C208AFEC600D301FA /* Moving2DGraphVisualizer.h */,
-				B48C7B10208AFED600D301FA /* Moving3DGraphVisualizer.cpp */,
-				B48C7B0F208AFED600D301FA /* Moving3DGraphVisualizer.h */,
+				0B39F1E6BB4A72B6DF3BD1C0 /* Moving2DGraphVisualizer.cpp */,
+				5D9E61EA9FCC5F737F3A14CC /* Moving2DGraphVisualizer.h */,
+				61BADC3D27694689A3FE59D0 /* Moving3DGraphVisualizer.cpp */,
+				7A4C90E6B3F601484E27188B /* Moving3DGraphVisualizer.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -275,16 +319,20 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				2C90521ED7C6EBA350D5CCE0 /* Moving2DGraphVisualizer.cpp in Sources */,
+				FC0630A76A6A698E2458DF39 /* Moving3DGraphVisualizer.cpp in Sources */,
+				AC4988705CB00963B234E559 /* ofxFFTBase.cpp in Sources */,
+				69F6C823D44C10D317D52051 /* ofxFFTLive.cpp in Sources */,
+				D62433FAEC7D57D21E43E872 /* ofxFFTFile.cpp in Sources */,
+				24EEC1024DAA56F3F1468405 /* fft.cpp in Sources */,
 				A1AFA5868C30553AEF6C46A9 /* ofxBaseGui.cpp in Sources */,
 				D7D6D375D80AD3CBF82C2C64 /* ofxSliderGroup.cpp in Sources */,
-				B48C7B0E208AFEC600D301FA /* Moving2DGraphVisualizer.cpp in Sources */,
 				6FA8731B3D8894CB8B866D7B /* ofxToggle.cpp in Sources */,
 				4B3A512A1B863B24C68593CD /* ofxButton.cpp in Sources */,
 				7AB84618A0B9C0A71D1B86C4 /* ofxGuiGroup.cpp in Sources */,
 				E0AFB0EC86E08095D404354D /* ofxLabel.cpp in Sources */,
 				FC14B138F37C26AF1BA7EFD7 /* ofxPanel.cpp in Sources */,
 				8A674F105D9702940C3A1FAB /* ofxSlider.cpp in Sources */,
-				B48C7B11208AFED600D301FA /* Moving3DGraphVisualizer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +368,9 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src,
 					../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -354,6 +405,9 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src,
 					../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -381,6 +435,9 @@
 				GCC_MODEL_TUNING = NONE;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src,
 					../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src,
 				);
 				ICON = "$(ICON_NAME_DEBUG)";
@@ -408,6 +465,9 @@
 				GCC_MODEL_TUNING = NONE;
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
+					src,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs,
+					../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src,
 					../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src,
 				);
 				ICON = "$(ICON_NAME_RELEASE)";

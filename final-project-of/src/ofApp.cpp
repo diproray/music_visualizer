@@ -14,6 +14,16 @@ const int kTurquoiseColourHexValue = 0xC9E9F6; // the int (hex) value for turquo
 
 const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colour.
 
+// TODO: integrate time waveform into FFT visualization
+
+//int channelsOut = 0;        // number of requested output channels (i.e. 2 for stereo).
+//int channelsIn = 1;         // number of requested input channels.
+//int sampleRate = 44100;     // requested sample rate (44100 is typical).
+//int bufferSize = 256;       // requested buffer size (256 is typical).
+//int numOfBuffers = 4;       // number of buffers to queue, less buffers will be more responsive, but less stable.
+
+
+
 // Functions to be run are decided based on the state of the application.
 // E.g. if the state is MENU, functions pertaining to the Menu screen are run.
 //      The same applies for the other states.
@@ -94,6 +104,14 @@ void ofApp::update() {
 
         }
         
+    } else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
+        
+        // Update the intenral state of the FFT object to reflect new music played at this moment
+        // through the microphone.
+        
+        fft_live_.update();
+//        fft_base_.update();
+        
     }
 
 }
@@ -129,6 +147,18 @@ void ofApp::draw() {
 
         moving_3d_graph_visualizer_.drawEqualizerBarsAndMoving3DGraph();
 
+    }
+    else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
+        
+        // Draw the frequency waveform computed through FFT
+        // and display it.
+        
+        // Set background to turquoise colour.
+        ofSetBackgroundColorHex(kTurquoiseColourHexValue);
+        
+        fft_live_.draw(12, ofGetHeight() / 3, 1000, 400);
+//        drawWaveforms();
+        
     }
 }
 
@@ -177,7 +207,12 @@ void ofApp::keyPressed(int key) {
             
         }
     }
-
+    
+    else if (uppercase_key == 'C') {
+        
+        moving_2d_graph_visualizer_.mode = (moving_2d_graph_visualizer_.mode == 1) ? 2 : 1;
+        
+    }
     // If the key is D
 
     else if (uppercase_key == 'D') {
@@ -214,6 +249,34 @@ void ofApp::keyPressed(int key) {
         }
     }
     
+    else if (uppercase_key == 'F') {
+        
+        if (current_state_ == MENU) {
+            
+            // Move to the Moving 3D Graph Visualization screen.
+            // Intialize resources and begin the music and visualization!
+            
+            ofSetWindowTitle("FFT Transform and Visualization");
+            current_state_ = FFT_TRANSFORMER_AND_VIZ;
+            
+            // The below line calls the function that initializes all resources
+            // for the FFT performing object.
+            
+            fft_live_.setMirrorData(false);
+            fft_live_.setup();
+            
+//             sound_streamer_.setup(this, channelsOut, channelsIn, sampleRate, bufferSize, numOfBuffers);
+//             samples_channel_.assign(bufferSize, 0.0);
+            
+        }
+        else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
+            
+            ofSetWindowTitle("Menu");
+            current_state_ = MENU;
+
+        }
+        
+    }
     // TODO: Add capability to pause, triggering a menu screen.
     
     // TODO: Add switching feature for different visualizations.
@@ -236,12 +299,14 @@ void ofApp::drawMenuAndOptions() {
     
     string menu_message = "MUSIC VISUALIZER\n";
     menu_message += "1. Moving Graph Visualization (Press G)\n";
-    menu_message += "2. Moving 3D Graph Visualization (Press D)";
+    menu_message += "2. Moving 3D Graph Visualization (Press D)\n";
+    menu_message += "3. FFT Transform and Visualization (Press F)";
     
     // Display the string.
     text_font_loader_.drawString(menu_message, ofGetWidth() / 4, ofGetHeight() / 4);
     
 }
+
 
 // The below functions are currently not being used.
 

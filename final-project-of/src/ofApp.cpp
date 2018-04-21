@@ -14,6 +14,8 @@ const int kTurquoiseColourHexValue = 0xC9E9F6; // the int (hex) value for turquo
 
 const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colour.
 
+const std::string kSongToPlay = "indian_summer.mp3"; // string containing the name of the song to be played
+
 // TODO: integrate time waveform into FFT visualization
 
 //int channelsOut = 0;        // number of requested output channels (i.e. 2 for stereo).
@@ -45,10 +47,10 @@ void ofApp::setup() {
     // Load the font (.ttf file from ../bin/data directory)
     // which the text is to be displayed in.
     
-    text_font_loader_.load("freight-sans.ttf", kDefaultTextSize);
+    text_font_loader_.load("helvetica.ttf", kDefaultTextSize);
     
     // Load the song to be visualized and played.
-    sound_player_.load("indian_summer.mp3");
+    sound_player_.load(kSongToPlay);
     
     // Set the song playing to a loop.
     // This means that if the song ends, it will restart playing.
@@ -136,7 +138,16 @@ void ofApp::draw() {
     
         moving_2d_graph_visualizer_.drawEqualizerBarsAndMovingGraph();
         
+        // Display a "Now Playing :" + the song's name, in Helvetica font.
+        
+        ofTrueTypeFont temporary_font_loader_;
+        temporary_font_loader_.load("helvetica.ttf", 10);
+        
+        ofSetColor(0, 0, 0);
+        temporary_font_loader_.drawString("Now Playing: " + kSongToPlay, 800, 20);
+        
     }
+    
     else if (current_state_ == MOVING_3D_GRAPH_VIZ) {
 
         // Set background to black colour.
@@ -146,6 +157,14 @@ void ofApp::draw() {
         // for the moving graph visualization.
 
         moving_3d_graph_visualizer_.drawEqualizerBarsAndMoving3DGraph();
+        
+        // Display a "Now Playing :" + the song's name, in Helvetica font.
+        
+        ofTrueTypeFont temporary_font_loader_;
+        temporary_font_loader_.load("helvetica.ttf", 10);
+        
+        ofSetColor(255, 255, 255);
+        temporary_font_loader_.drawString("Now Playing: " + kSongToPlay, 800, 20);
 
     }
     else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
@@ -157,7 +176,7 @@ void ofApp::draw() {
         ofSetBackgroundColorHex(kTurquoiseColourHexValue);
         
         fft_live_.draw(12, ofGetHeight() / 3, 1000, 400);
-//        drawWaveforms();
+//      drawWaveforms();
         
     }
 }
@@ -299,9 +318,9 @@ void ofApp::drawMenuAndOptions() {
     
     // Form the string to be displayed.
     
-    string menu_message = "MUSIC VISUALIZER\n";
-    menu_message += "1. Moving Graph Visualization (Press G)\n";
-    menu_message += "2. Moving 3D Graph Visualization (Press D)\n";
+    string menu_message = "                 MUSIC VISUALIZER\n\n";
+    menu_message += "1. Moving Graph Visualization (Press G)\n\n";
+    menu_message += "2. Moving 3D Graph Visualization (Press D)\n\n";
     menu_message += "3. FFT Transform and Visualization (Press F)";
     
     // Display the string.

@@ -161,8 +161,11 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
  */
 void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     
+    ofTrueTypeFont temporary_font_loader_;
+    temporary_font_loader_.load("helvetica.ttf", 10);
+    
     ofSetColor(0, 0, 0);
-    ofDrawBitmapString("Press C to switch display between lines and triangles visualizations.", 20, 20);
+    temporary_font_loader_.drawString("Press C to switch display between lines and triangles visualizations.", 20, 20);
     
     // NOTE: The values for drawing various objects are tuned for
     // a 1024 x 768 pixels window.

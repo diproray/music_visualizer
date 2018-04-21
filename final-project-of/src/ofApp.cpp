@@ -48,7 +48,7 @@ void ofApp::setup() {
     text_font_loader_.load("freight-sans.ttf", kDefaultTextSize);
     
     // Load the song to be visualized and played.
-    sound_player_.load("all_my_love.mp3");
+    sound_player_.load("indian_summer.mp3");
     
     // Set the song playing to a loop.
     // This means that if the song ends, it will restart playing.
@@ -191,6 +191,7 @@ void ofApp::keyPressed(int key) {
             
             // Start playing the song.
             sound_player_.play();
+            sound_player_.setPositionMS(60000); // For demo purposes - plays song from the 1 minute mark
             
         } else if (current_state_ == MOVING_GRAPH_VIZ) {
             
@@ -234,6 +235,7 @@ void ofApp::keyPressed(int key) {
 
             // Start playing the song.
             sound_player_.play();
+            sound_player_.setPositionMS(60000); // For demo purposes - plays song from the 1 minute mark
 
         }
         else if (current_state_ == MOVING_3D_GRAPH_VIZ) {
@@ -256,7 +258,7 @@ void ofApp::keyPressed(int key) {
             // Move to the Moving 3D Graph Visualization screen.
             // Intialize resources and begin the music and visualization!
             
-            ofSetWindowTitle("FFT Transform and Visualization");
+            ofSetWindowTitle("FFT Transform and Frequency Waveform Visualization");
             current_state_ = FFT_TRANSFORMER_AND_VIZ;
             
             // The below line calls the function that initializes all resources

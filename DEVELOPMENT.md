@@ -25,3 +25,14 @@
 11. Got a real-time FFT Visualization of time and frequency waveform working but its execution appears to be buggy, though I don't understand what's wrong with my code. For now, I have a simple FFT frequency waveform of real time audio input ready.
 12. Added toggling mode between lines and triangle for Moving 2D graph visualization.
 
+## #4 Saturday 04/21/2018 - Tuesday 04/24/2018
+1. Tweaked code to make visualization look better.
+2. Started looking into addons to use.
+3. Found ofxAudioAnalyzer to be the perfect add-on I needed - it's a wrapper for the Essentia library I planned to use in the first place!
+4. Downloaded it, but ran into a few problems setting it up. Took a day to resolve those issues.
+5. Able to build examples, went through the code and documentation.
+6. Made a plan for my next steps
+   * Time to add the FFT visualization with time and frequency waveforms. 
+   * Also, since my application is a music visualization and analysis application, I decided to make use of the various functions of       ofxAudioAnalyzer to return highly technical aspects of the music playing, which I will be displaying as a Technical Analysis Visualization.
+   * Need to add sliders for my first two visualizations to allow for customization.
+   * Future: Make a better Menu Screen. Maybe, add capability to shuffle/play different songs.

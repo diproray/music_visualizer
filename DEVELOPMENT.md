@@ -19,7 +19,7 @@
 5. Thought about how I could solve my problem of separating into classes. Trying that didn't work. Separating them into different files didn't work either. So I decided to create Application States for each visualization and the menu. The Application State guides which functions are to be run.
 6. Before working on the FFT Transform, I decided to try and extend my Moving 2D Graph Visualization to a 3D one. I looked up some tutorials and ways in which I could do this - and the method which would allow for most code reuse was adding an extra Z dimension, and theta and phi spherical angles.
 7. My Moving 3D graph works, yay! Cleaned up the code for it, ensured I reused as much code as possible, then created an Application State for it.
-8. Committed my second visualizations code to the repo! :D
+8. Committed my second visualizations code to the repo! :D **Funnily enough, although it took quite some time, I was able to figure out how to implement my 3D visualization (my ambitious goal for my project) pretty early on! :D**
 9. Back to working on FFT transform and Visualization. Made progress learning how to use the ofxFft addon for openFrameworks. Thinking about taking audio input in real time through the microphone.
 10. Solved my separation into classes problem. Thankfully, my code was pretty modular so separating them into classes did not take much time. The 3D Visualizer inherits from the 2D Visualizer too!
 11. Got a real-time FFT Visualization of time and frequency waveform working but its execution appears to be buggy, though I don't understand what's wrong with my code. For now, I have a simple FFT frequency waveform of real time audio input ready.

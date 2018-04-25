@@ -14,15 +14,15 @@ const int kTurquoiseColourHexValue = 0xC9E9F6; // the int (hex) value for turquo
 
 const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colour.
 
-const std::string kSongToPlay = "indian_summer.mp3"; // string containing the name of the song to be played
+const std::string kSongToPlay = "all_my_love.mp3"; // string containing the name of the song to be played
 
 // TODO: integrate time waveform into FFT visualization
 
-//int channelsOut = 0;        // number of requested output channels (i.e. 2 for stereo).
-//int channelsIn = 1;         // number of requested input channels.
-//int sampleRate = 44100;     // requested sample rate (44100 is typical).
-//int bufferSize = 256;       // requested buffer size (256 is typical).
-//int numOfBuffers = 4;       // number of buffers to queue, less buffers will be more responsive, but less stable.
+// int channelsOut = 0;        // number of requested output channels (i.e. 2 for stereo).
+// int channelsIn = 1;         // number of requested input channels.
+// int sampleRate = 44100;     // requested sample rate (44100 is typical).
+// int bufferSize = 256;       // requested buffer size (256 is typical).
+// int numOfBuffers = 4;       // number of buffers to queue, less buffers will be more responsive, but less stable.
 
 
 

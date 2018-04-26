@@ -29,7 +29,7 @@
 1. Tweaked code to make visualization look better.
 2. Started looking into addons to use.
 3. Found ofxAudioAnalyzer to be the perfect add-on I needed - it's a wrapper for the Essentia library I planned to use in the first place!
-4. Downloaded it, but ran into a few problems setting it up. Took a day to resolve those issues.
+4. [SOLVED] Downloaded it, but ran into a few problems setting it up. Took a day to resolve those issues. A dependency failed to compile initially but a few modifications did the trick.
 5. Able to build examples, went through the code and documentation.
 6. Made a plan for my next steps
    * Time to add the FFT visualization with time and frequency waveforms. 

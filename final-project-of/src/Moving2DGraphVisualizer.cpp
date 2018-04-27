@@ -265,6 +265,7 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     ofPopMatrix();
     
     // The coordinate system is now restored. (0,0) is at the upper left corner.
+    
 }
 
 int Moving2DGraphVisualizer::getNumberOfBands() {

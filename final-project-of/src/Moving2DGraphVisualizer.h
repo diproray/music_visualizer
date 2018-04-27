@@ -6,6 +6,7 @@
 //
 
 #include "ofMain.h"
+#include "ofxGui.h"
 #include <iostream>
 #ifndef Moving2DGraphVisualizer_h
 #define Moving2DGraphVisualizer_h
@@ -41,7 +42,6 @@ class Moving2DGraphVisualizer {
             float current_time_; // Current time value, used for computing delta (time)
     
             float delta_time_; // stores the last updated time change
-    
     
         public:
     

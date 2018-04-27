@@ -4,6 +4,8 @@
 #include "ofxFFTLive.h"
 #include "Moving2DGraphVisualizer.h"
 #include "Moving3DGraphVisualizer.h"
+#include "ofSoundPlayerExtended.h"
+#include "FFTVisualizer.h"
 
 /**
  * The ofApp class that contains all the functions which are executed when main() is run.
@@ -21,6 +23,8 @@ class ofApp : public ofBaseApp {
     
     ofSoundPlayer sound_player_; // the sound player for the music to be visualized
     
+    ofSoundPlayerExtended extended_sound_player_;
+    
     ofTrueTypeFont text_font_loader_; // the TTF file loader for
                                       // the font the text is to be displayed in
 
@@ -30,6 +34,9 @@ class ofApp : public ofBaseApp {
     
     ofxFFTLive fft_live_; // the ofxFFT addon object used to visualize frequency waveforms after applying FFT
                           // on real time data
+    
+    FFTVisualizer fft_visualizer_;
+
     
 //    ofSoundStream sound_streamer_;
 //

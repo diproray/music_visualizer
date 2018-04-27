@@ -8,6 +8,10 @@
 #include <stdio.h>
 #include "FFTVisualizer.h"
 
+/**
+ * Constructor for an FFTVisualizer object that initializes
+ * resources for the object
+ */
 FFTVisualizer::FFTVisualizer() noexcept {
     
     sample_rate_ = 44100;
@@ -20,6 +24,13 @@ FFTVisualizer::FFTVisualizer() noexcept {
     
 }
 
+/**
+ * The following function updates all the values for
+ * the FFT visualizer.
+ *
+ * @param sound_buffer - the sound buffer which
+ *                              contains sound for the moment, to be updated with
+ */
 void FFTVisualizer::updateValuesForFFTVisualizer(ofSoundBuffer sound_buffer) {
     
     audio_analyzer_.analyze(sound_buffer);
@@ -37,6 +48,11 @@ void FFTVisualizer::updateValuesForFFTVisualizer(ofSoundBuffer sound_buffer) {
     
 }
 
+/**
+ * The following function is responsible for drawing
+ * the time waveform and associated
+ * frequency bars.
+ */
 void FFTVisualizer::drawWaveformAndFrequencyBars() {
     
     ofBackground(34, 34, 34);
@@ -71,6 +87,9 @@ void FFTVisualizer::drawWaveformAndFrequencyBars() {
     ofSetColor(255);
 }
 
+/**
+ * Getter for the number of bands of the visualizer.
+ */
 int FFTVisualizer::getNumberOfBands() {
     return number_of_bands_;
 }

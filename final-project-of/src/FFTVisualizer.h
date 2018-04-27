@@ -14,28 +14,48 @@
 #ifndef FFTVisualizer_h
 #define FFTVisualizer_h
 
+/**
+ * Class that models an FFT, time and frequency waveform visualization.
+ */
 class FFTVisualizer {
     
-    ofxAudioAnalyzer audio_analyzer_;
+    ofxAudioAnalyzer audio_analyzer_; // the audio analyzer that obtains frequency band values and spectrum
     
-    ofSoundBuffer sound_buffer_;
+    std::vector<float> sound_spectrum_; // the float array storing the sound spectrum values
     
-    std::vector<float> sound_spectrum_;
+    ofPolyline time_waveform_; // the line structure storing the current time waveform
     
-    ofPolyline time_waveform_;
+    int sample_rate_; // the sample rate of the music
     
-    int sample_rate_;
-    
-    int number_of_bands_;
+    int number_of_bands_; // the number of bands for the music spectrum
     
   public:
     
+    /**
+     * Constructor for an FFTVisualizer object that initializes
+     * resources for the object
+     */
     FFTVisualizer() noexcept;
     
+   /**
+    * The following function updates all the values for
+    * the FFT visualizer.
+    *
+    * @param sound_buffer - the sound buffer which
+    *                              contains sound for the moment, to be updated with
+    */
     void updateValuesForFFTVisualizer(ofSoundBuffer sound_buffer);
     
+    /**
+     * The following function is responsible for drawing
+     * the time waveform and associated
+     * frequency bars.
+     */
     void drawWaveformAndFrequencyBars();
     
+    /**
+     * Getter for the number of bands of the visualizer.
+     */
     int getNumberOfBands();
     
 };

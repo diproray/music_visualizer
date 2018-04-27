@@ -52,6 +52,9 @@ class Moving3DGraphVisualizer : protected Moving2DGraphVisualizer {
          */
         void drawEqualizerBarsAndMoving3DGraph();
     
+        /**
+         * Getter for the number of bands of the visualizer.
+         */
         int getNumberOfBands();
 
 };

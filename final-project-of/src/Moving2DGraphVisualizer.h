@@ -71,6 +71,9 @@ class Moving2DGraphVisualizer {
              */
             void drawEqualizerBarsAndMovingGraph();
     
+            /**
+             * Getter for the number of bands of the visualizer.
+             */
             int getNumberOfBands();
 };
 

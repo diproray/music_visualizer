@@ -132,7 +132,7 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
     // calculate the particle velocity.
     
     particle_velocity_ =
-    ofMap(spectrum_values_vector_[band_index_for_particle_velocity_], 0, 0.1, 0.15, 0.55);
+    ofMap(spectrum_values_vector_[band_index_for_particle_velocity_], 0, 0.1, 0.25, 0.55);
     
     // For each particle,
     // compute its news x and y coordinates (its position).

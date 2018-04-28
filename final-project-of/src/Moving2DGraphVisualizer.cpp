@@ -68,7 +68,7 @@ Moving2DGraphVisualizer::Moving2DGraphVisualizer() noexcept {
     // changing only at a fewmoments during the visualization. Usually, these changes are not very prominent.
     // In a moving graph visualization, changing radius often is required more than chaging particles' velocity.
     
-    band_index_for_particle_velocity_ = 100;
+    band_index_for_particle_velocity_ = 50;
     
     // Set the current time parameter to zero intially.
     // This will be changed in each update to reflect the last time at which the music was visualized.
@@ -128,13 +128,13 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
     // between 1 and 3. The output is thereforce mid-way between 400 and 800, i.e. 600.
     
     graph_radius_ =
-    ofMap(spectrum_values_vector_[band_index_for_graph_radius_], 1, 3, 400, 800, true);
+    ofMap(spectrum_values_vector_[band_index_for_graph_radius_], 1, 3, 450, 750, true);
     
     // Using a similar approach to what is shown above,
     // calculate the particle velocity.
     
     particle_velocity_ =
-    ofMap(spectrum_values_vector_[band_index_for_particle_velocity_], 0, 0.1, 0.25, 0.55);
+    ofMap(spectrum_values_vector_[band_index_for_particle_velocity_], 0, 0.1, 0.45, 0.75);
     
     // For each particle,
     // compute its news x and y coordinates (its position).
@@ -163,21 +163,13 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
  */
 void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     
-    ofTrueTypeFont temporary_font_loader_;
-    temporary_font_loader_.load("helvetica.ttf", 10);
+    //    ofTrueTypeFont temporary_font_loader_;
+    //    temporary_font_loader_.load("helvetica.ttf", 10);
     
-    ofSetColor(0, 0, 0);
     // temporary_font_loader_.drawString("Press C to switch display between lines and triangles visualizations.", 20, 20);
     
     // NOTE: The values for drawing various objects are tuned for
     // a 1024 x 768 pixels window.
-    
-    // Draw the background rectangle for the equalizer bars.
-    // Fill it with a light gray colour.
-    
-    ofSetColor(230, 230, 230);
-    ofFill();
-    ofDrawRectangle(10, 700, ofGetWidth() - 20, - 100);
     
     // For each band within the spectrum,
     // display the value with a rectangle.
@@ -185,23 +177,11 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     
     for (int bandNumber = 0; bandNumber < number_of_bands_; bandNumber++) {
         
-        // In case, the band is the index deciding changes in
-        // graph radius and particle velocity,
-        // set draw colour to black.
-        //
-        // Else, set draw colour to gray.
-        
-        if (bandNumber == band_index_for_graph_radius_
-            || bandNumber == band_index_for_particle_velocity_) {
-            ofSetColor(0, 0, 0); // Black color
-        }
-        else {
-            ofSetColor(128, 128, 128); // Gray color
-        }
+        ofSetColor(128, 128, 128); // Gray color
         
         // Draw the rectangle for the band with the specified colour.
         
-        ofDrawRectangle(20 + bandNumber * 6, 700, 4, -spectrum_values_vector_[bandNumber] * 250);
+        ofDrawRectangle(20 + bandNumber * 7, 700, 4, -spectrum_values_vector_[bandNumber] * 250);
     }
     
     // Save the current coordinate system, so that it can be restored later.
@@ -219,7 +199,7 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
         
         ofSetColor(ofRandom(255), ofRandom(255), ofRandom(255));
         ofFill();
-        ofDrawCircle(particles_vector_[particleNumber], 2);
+        ofDrawCircle(particles_vector_[particleNumber], 3);
     }
     
     // The below value is the threshold parameter for classifying the distance between two points

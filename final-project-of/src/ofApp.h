@@ -17,7 +17,7 @@ class ofApp : public ofBaseApp {
         MENU,
         MOVING_GRAPH_VIZ,
         MOVING_3D_GRAPH_VIZ,
-        FFT_TRANSFORMER_AND_VIZ
+        FFT_VIZ
     };
     
     ApplicationState current_state_; // this variable tracks the current state of the application

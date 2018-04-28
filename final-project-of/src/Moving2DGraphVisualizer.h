@@ -19,7 +19,7 @@ class Moving2DGraphVisualizer {
             int number_of_bands_;  // Number of bands in the spectrum
             
             std::vector<float> spectrum_values_vector_; // Vector storing
-            // smoothed spectrum float values
+                                                        // smoothed spectrum float values
             
             float graph_radius_;  // Graph radius parameter
             
@@ -32,10 +32,10 @@ class Moving2DGraphVisualizer {
             int total_number_of_particles_; // Number of graph particles
             
             std::vector<float> particle_offset_x_axis_vector_; // Vector storing offsets for
-            // Perlin Noise calculation of particles' x-positions
+                                                               // Perlin Noise calculation of particles' x-positions
             
             std::vector<float> particle_offset_y_axis_vector_; // Vector storing offsets for
-            // Perlin Noise calculation of particles' y-positions
+                                                               // Perlin Noise calculation of particles' y-positions
             
             std::vector<ofPoint> particles_vector_; // Moving graph's particles positions
             

@@ -7,9 +7,6 @@ const int kDefaultTextSize = 20; // the int constant storing the default font di
 
 const float kDefaultSongPlaySpeed = 1.0f; // the float constant storing the default play speed for music
 
-const float kSpectrumSmoothingFactor = 0.96f; // the float constant storing the smoothing factor for
-                                              // the moving graph visualizer
-
 const int kTurquoiseColourHexValue = 0xC9E9F6; // the int (hex) value for turquoise colour.
 
 const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colour.
@@ -118,7 +115,7 @@ void ofApp::update() {
 
         }
         
-    } else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
+    } else if (current_state_ == FFT_VIZ) {
         
         // Get the sound buffer for the current sound being played.
         
@@ -182,7 +179,7 @@ void ofApp::draw() {
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
 
     }
-    else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
+    else if (current_state_ == FFT_VIZ) {
         
         // Draw the time waveform and frequency bars of the FFT visualization.
         fft_visualizer_.drawWaveformAndFrequencyBars();
@@ -312,7 +309,7 @@ void ofApp::keyPressed(int key) {
             // Intialize resources and begin the music and visualization!
             
             ofSetWindowTitle("FFT, Time and Frequency Waveform Visualization");
-            current_state_ = FFT_TRANSFORMER_AND_VIZ;
+            current_state_ = FFT_VIZ;
             
             // Start playing the song.
             extended_sound_player_.play();
@@ -321,7 +318,7 @@ void ofApp::keyPressed(int key) {
             
         }
         
-        else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
+        else if (current_state_ == FFT_VIZ) {
             
             // If F is pressed in the FFT visualization screen,
             // return to the Menu screen, after deallocating the Moving Graph Visualizer's resources and stopping the music.

@@ -56,3 +56,7 @@
 
 ## #6 Saturday 04/28/2018
 1. Got the GUI working for the moving 2D graph visualization! Committed the code to the repository.
+2. Next Steps:
+   * Add GUI for other visualizations, if needed.
+   * Look into adding one more technical visualization.
+   * Make the menu screen nicer.

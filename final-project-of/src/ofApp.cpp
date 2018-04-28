@@ -313,15 +313,34 @@ void ofApp::keyPressed(int key) {
             
         }
         
-    } else if (uppercase_key == 'S') {
+    }
+    // if the key is S
+    
+    else if (uppercase_key == 'S') {
         
-        sound_player_.unload();
-        // extended_sound_player_.unload();
+        // Allow song switching only if the user is in the Menu.
+        //
+        // For understandable reasons, switching a song during the visualization
+        // can cause unexpected crashes.
         
-        song_to_play = (song_to_play == "indian_summer.mp3") ? "alone.mp3" : "indian_summer.mp3";
-        
-        sound_player_.load(song_to_play);
-        extended_sound_player_.load(song_to_play);
+        if (current_state_ == MENU) {
+            
+            // Unload the sound player.
+            //
+            // We don't need to do this for the extended sound player as load() first unloads, then loads.
+            
+            sound_player_.unload();
+            
+            // Set the song to be played.
+            song_to_play = (song_to_play == "indian_summer.mp3") ? "alone.mp3" : "indian_summer.mp3";
+            
+            // Load the songs into the players.
+            
+            sound_player_.load(song_to_play);
+            extended_sound_player_.load(song_to_play);
+            
+        }
+
     }
 
 }

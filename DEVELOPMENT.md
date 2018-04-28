@@ -7,7 +7,7 @@
 
 ## #2 Thursday 04/19/2018
 1. Reasonable progress made on a rudimentary design of the music visualization application. 
-    * I have been able to implement two visualizations of the music: one with equalizer level bars, and one with a graph of shifting vertices whose edges and size change with the change in music tone and change colours (I call this the Moving Graph Visualization).
+    * I have been able to implement two visualizations of the music: one with equalizer level bars, and one with a graph of shifting vertices whose edges and size change with the change in music tone and change colours (I call this the Moving Graph Visualization - it's based off a really nice music visualization I once saw on YouTube).
     
 2. [SOLVED] Problem faced: graphics shift very abruptly. Took some figure out that this can be solved using the technique of "smoothing" and a very helpful tool called [Perlin Noise](https://en.wikipedia.org/wiki/Perlin_noise).
 
@@ -60,3 +60,4 @@
    * Add GUI for other visualizations, if needed.
    * Look into adding one more technical visualization.
    * Make the menu screen nicer.
+3. Tried different GUIs for the menu screen, but none look very nice. Planning to leave it as text itself.

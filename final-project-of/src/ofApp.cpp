@@ -15,7 +15,7 @@ const int kTurquoiseColourHexValue = 0xC9E9F6; // the int (hex) value for turquo
 const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colour.
 
 std::string song_to_play = "indian_summer.mp3"; // string containing the name of the song to be played
- 
+
 // Functions to be run are decided based on the state of the application.
 // E.g. if the state is MENU, functions pertaining to the Menu screen are run.
 //      The same applies for the other states.
@@ -35,7 +35,22 @@ void ofApp::setup() {
     current_state_ = MENU; // set the current state to the menu
     
     ofSetWindowTitle("Menu");
+    
+    // The below line calls the function that initializes the object
+    // for the moving 2D graph visualizer.
+    
+    moving_2d_graph_visualizer_ = Moving2DGraphVisualizer();
+    
+    // The below line calls the function that initializes all resources
+    // for the moving 3D graph visualizer.
+    
+    moving_3d_graph_visualizer_ = Moving3DGraphVisualizer();
+    
+    // The below line calls the function that initializes all resources
+    // for the FFT visualizer.
+    
     fft_visualizer_ = FFTVisualizer();
+    
     
     // Load the font (.ttf file from ../bin/data directory)
     // which the text is to be displayed in.
@@ -203,11 +218,6 @@ void ofApp::keyPressed(int key) {
             ofSetWindowTitle("Moving Graph Visualization");
             current_state_ = MOVING_GRAPH_VIZ;
             
-            // The below line calls the function that initializes the object
-            // for the moving graph visualizer.
-            
-            moving_2d_graph_visualizer_ = Moving2DGraphVisualizer();
-            
             // Start playing the song.
             sound_player_.play();
             sound_player_.setPositionMS(60000); // For demo purposes - plays song from the 1 minute mark
@@ -250,11 +260,6 @@ void ofApp::keyPressed(int key) {
 
             ofSetWindowTitle("Moving 3D Graph Visualization");
             current_state_ = MOVING_3D_GRAPH_VIZ;
-
-            // The below line calls the function that initializes all resources
-            // for the moving graph visualizer.
-
-            moving_3d_graph_visualizer_ = Moving3DGraphVisualizer();
 
             // Start playing the song.
             sound_player_.play();

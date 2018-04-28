@@ -15,7 +15,7 @@ const int kTurquoiseColourHexValue = 0xC9E9F6; // the int (hex) value for turquo
 const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colour.
 
 std::string song_to_play = "indian_summer.mp3"; // string containing the name of the song to be played
-
+ 
 // Functions to be run are decided based on the state of the application.
 // E.g. if the state is MENU, functions pertaining to the Menu screen are run.
 //      The same applies for the other states.

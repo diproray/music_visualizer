@@ -14,17 +14,7 @@ const int kTurquoiseColourHexValue = 0xC9E9F6; // the int (hex) value for turquo
 
 const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colour.
 
-const std::string kSongToPlay = "indian_summer.mp3"; // string containing the name of the song to be played
-
-// TODO: integrate time waveform into FFT visualization
-
-// int channelsOut = 0;        // number of requested output channels (i.e. 2 for stereo).
-// int channelsIn = 1;         // number of requested input channels.
-// int sampleRate = 44100;     // requested sample rate (44100 is typical).
-// int bufferSize = 256;       // requested buffer size (256 is typical).
-// int numOfBuffers = 4;       // number of buffers to queue, less buffers will be more responsive, but less stable.
-
-
+std::string song_to_play = "indian_summer.mp3"; // string containing the name of the song to be played
 
 // Functions to be run are decided based on the state of the application.
 // E.g. if the state is MENU, functions pertaining to the Menu screen are run.
@@ -34,6 +24,8 @@ const std::string kSongToPlay = "indian_summer.mp3"; // string containing the na
 //
 // Moving3DGraphVisualizer is a class having functions to create the Moving 3D Graph Visualization.
 // As you might guess, Moving3DGraphVisualizer inherits from Moving2DGraphVisualizer.
+//
+// FFTVisualizer is a class having functions to create the FFT Visualization.
 
 /**
  * The following function sets up the resources for the application.
@@ -51,21 +43,21 @@ void ofApp::setup() {
     text_font_loader_.load("helvetica.ttf", kDefaultTextSize);
     
     // Load the song to be visualized and played.
-    sound_player_.load(kSongToPlay);
+    
+    sound_player_.load(song_to_play);
+    extended_sound_player_.load(song_to_play);
     
     // Set the song playing to a loop.
     // This means that if the song ends, it will restart playing.
     // This will continuously go on till the application is closed.
     
     sound_player_.setLoop(true);
+     extended_sound_player_.setLoop(true);
     
     // Set the speed to default value (1.0f).
     // TODO: Add capability to change song speed through a slider in later functions.
     
     sound_player_.setSpeed(kDefaultSongPlaySpeed);
-    
-    extended_sound_player_.load("indian_summer.mp3");
-    extended_sound_player_.setLoop(true);
     extended_sound_player_.setSpeed(kDefaultSongPlaySpeed);
     
 }
@@ -113,15 +105,13 @@ void ofApp::update() {
         
     } else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
         
-//        // Update the intenral state of the FFT object to reflect new music played at this moment
-//        // through the microphone.
-//
-//        fft_live_.update();
-////        fft_base_.update();
+        // Get the sound buffer for the current sound being played.
         
         ofSoundBuffer current_sound_buffer = extended_sound_player_.getCurrentSoundBuffer(fft_visualizer_.getNumberOfBands());
         
+        // Update the values of the FFT visualizer.
         fft_visualizer_.updateValuesForFFTVisualizer(current_sound_buffer);
+        
     }
 
 }
@@ -152,7 +142,7 @@ void ofApp::draw() {
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(0, 0, 0);
-        temporary_font_loader_.drawString("Now Playing: " + kSongToPlay, 800, 20);
+        temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
         
     }
     
@@ -172,20 +162,12 @@ void ofApp::draw() {
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(255, 255, 255);
-        temporary_font_loader_.drawString("Now Playing: " + kSongToPlay, 800, 20);
+        temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
 
     }
     else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
         
-//        // Draw the frequency waveform computed through FFT
-//        // and display it.
-//
-//        // Set background to turquoise colour.
-//        ofSetBackgroundColorHex(kTurquoiseColourHexValue);
-//
-//        fft_live_.draw(12, ofGetHeight() / 3, 1000, 400);
-        ////      drawWaveforms();
-        
+        // Draw the time waveform and frequency bars of the FFT visualization.
         fft_visualizer_.drawWaveformAndFrequencyBars();
         
         // Display a "Now Playing :" + the song's name, in Helvetica font.
@@ -194,7 +176,7 @@ void ofApp::draw() {
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(255, 255, 255);
-        temporary_font_loader_.drawString("Now Playing: " + kSongToPlay, 800, 20);
+        temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
         
     }
 }
@@ -230,7 +212,9 @@ void ofApp::keyPressed(int key) {
             sound_player_.play();
             sound_player_.setPositionMS(60000); // For demo purposes - plays song from the 1 minute mark
             
-        } else if (current_state_ == MOVING_GRAPH_VIZ) {
+        }
+        
+        else if (current_state_ == MOVING_GRAPH_VIZ) {
             
             // If G is pressed in the Moving Graph visualization screen,
             // return to the Menu screen, after stopping the music.
@@ -245,9 +229,11 @@ void ofApp::keyPressed(int key) {
             
         }
     }
+    // If the key is C
     
     else if (uppercase_key == 'C') {
         
+        // Change Moving 2D Graph display mode.
         moving_2d_graph_visualizer_.mode = (moving_2d_graph_visualizer_.mode == 1) ? 2 : 1;
         
     }
@@ -275,6 +261,7 @@ void ofApp::keyPressed(int key) {
             sound_player_.setPositionMS(60000); // For demo purposes - plays song from the 1 minute mark
 
         }
+        
         else if (current_state_ == MOVING_3D_GRAPH_VIZ) {
 
             // If G is pressed in the Moving Graph visualization screen,
@@ -292,7 +279,7 @@ void ofApp::keyPressed(int key) {
         
         if (current_state_ == MENU) {
             
-            // Move to the Moving 3D Graph Visualization screen.
+            // Move to the FFT Visualization screen.
             // Intialize resources and begin the music and visualization!
             
             ofSetWindowTitle("FFT, Time and Frequency Waveform Visualization");
@@ -304,22 +291,33 @@ void ofApp::keyPressed(int key) {
             
             
         }
+        
         else if (current_state_ == FFT_TRANSFORMER_AND_VIZ) {
             
-            // fft_visualizer_.~FFTVisualizer();
+            // If F is pressed in the FFT visualization screen,
+            // return to the Menu screen, after deallocating the Moving Graph Visualizer's resources and stopping the music.
             
             ofSetWindowTitle("Menu");
             current_state_ = MENU;
             
+            // Restore line width to 1.
             ofSetLineWidth(1);
+            
+            // Stop playing the song.
             extended_sound_player_.stop();
             
         }
         
+    } else if (uppercase_key == 'S') {
+        
+        sound_player_.unload();
+        // extended_sound_player_.unload();
+        
+        song_to_play = (song_to_play == "indian_summer.mp3") ? "alone.mp3" : "indian_summer.mp3";
+        
+        sound_player_.load(song_to_play);
+        extended_sound_player_.load(song_to_play);
     }
-    // TODO: Add capability to pause, triggering a menu screen.
-    
-    // TODO: Add switching feature for different visualizations.
 
 }
 
@@ -340,7 +338,8 @@ void ofApp::drawMenuAndOptions() {
     string menu_message = "                 MUSIC VISUALIZER\n\n";
     menu_message += "1. Moving Graph Visualization (Press G)\n\n";
     menu_message += "2. Moving 3D Graph Visualization (Press D)\n\n";
-    menu_message += "3. FFT, Time and Frequency Waveform Visualization (Press F)";
+    menu_message += "3. FFT, Time and Frequency Waveform Visualization (Press F)\n\n";
+    menu_message += "4. Switch Song (Press S)";
     
     // Display the string.
     text_font_loader_.drawString(menu_message, ofGetWidth() / 4, ofGetHeight() / 4);

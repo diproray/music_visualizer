@@ -52,3 +52,7 @@
 5. Added a feature to switch songs between two songs.
 6. [SOLVED] ofSoundPlayerExtended caused some problems - unload() did not work properly for it. To solve this, I had to look through the code of ofxSoundPlayerExtended. I found that load() first unloads to remove any previous song, and then loads. That was causing the error. So I removed the unload() command.
 7. Song switching works perfectly! (It, however, needs to be done in the menu screen. If done during a visualization, the app crashes, understandably.) Allowed switching feature to work only in menu screen.
+8. Looking into using [ofxDatGui](https://github.com/braitsch/ofxDatGui) for toggling various values within my visualizations.
+
+## #6 Saturday 04/28/2018
+1. Got the GUI working for the moving 2D graph visualization! Committed the code to the repository.

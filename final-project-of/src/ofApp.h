@@ -5,6 +5,7 @@
 #include "Moving2DGraphVisualizer.h"
 #include "Moving3DGraphVisualizer.h"
 #include "ofSoundPlayerExtended.h"
+#include "ofxDatGui.h"
 #include "FFTVisualizer.h"
 
 /**
@@ -35,14 +36,9 @@ class ofApp : public ofBaseApp {
     ofxFFTLive fft_live_; // the ofxFFT addon object used to visualize frequency waveforms after applying FFT
                           // on real time data
     
-    FFTVisualizer fft_visualizer_;
-
+    FFTVisualizer fft_visualizer_; // an object which runs the FFT visualization
     
-//    ofSoundStream sound_streamer_;
-//
-//    ofxFFTBase fft_base_;
-//
-//    std::vector<float> samples_channel_;
+    ofxDatGui * gui_; // the GUI for the program
     
 	public:
     
@@ -77,6 +73,17 @@ class ofApp : public ofBaseApp {
          */
         void drawMenuAndOptions();
     
+        /**
+         * This function is responsible for executing an action based
+         * on moving the slider.
+         */
+        void onSliderEvent(ofxDatGuiSliderEvent e);
+    
+        /**
+         * This function is responsible for executing an action based
+         * on clicking a dropdown option.
+         */
+        void onDropdownEvent(ofxDatGuiDropdownEvent e);
     
         // The below functions are currently not being used.
     

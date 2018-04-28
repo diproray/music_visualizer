@@ -77,6 +77,8 @@ Moving2DGraphVisualizer::Moving2DGraphVisualizer() noexcept {
     
     current_time_ = 0;
     
+    threshold_distance_ = 40;
+    
 }
 
 /**
@@ -165,7 +167,7 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     temporary_font_loader_.load("helvetica.ttf", 10);
     
     ofSetColor(0, 0, 0);
-    temporary_font_loader_.drawString("Press C to switch display between lines and triangles visualizations.", 20, 20);
+    // temporary_font_loader_.drawString("Press C to switch display between lines and triangles visualizations.", 20, 20);
     
     // NOTE: The values for drawing various objects are tuned for
     // a 1024 x 768 pixels window.
@@ -224,10 +226,6 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     // as "close".
     // (If the distance between two points is close, an edge of a random colour will be drawn between them.)
     
-    // TODO: Allow toggling this value.
-    
-    float threshold_distance = 40;
-    
     // For all the particles,
     // if any two particles are close to each other,
     // draw an edge of a random colour between them.
@@ -238,7 +236,7 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
         for (int index_two = index_one + 1; index_two < total_number_of_particles_; index_two++) {
             if (ofDist(particles_vector_[index_one].x, particles_vector_[index_one].y,
                        particles_vector_[index_two].x, particles_vector_[index_two].y)
-                < threshold_distance) {
+                < threshold_distance_) {
                 
                 // Set a random colour.
                 
@@ -268,6 +266,31 @@ void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
     
 }
 
+/**
+ * Getter for the number of bands of the visualizer.
+ */
 int Moving2DGraphVisualizer::getNumberOfBands() {
+    
     return number_of_bands_;
+    
+}
+
+/**
+ * The following function is responsible for updating
+ * the threshold distance value.
+ */
+void Moving2DGraphVisualizer::updateThresholdDistanceValue(float new_value) {
+    
+    threshold_distance_ = new_value;
+    
+}
+
+/**
+ * The following function is responsible for updating
+ * the display mode.
+ */
+void Moving2DGraphVisualizer::updateDisplayMode(int new_mode) {
+    
+    mode = new_mode;
+    
 }

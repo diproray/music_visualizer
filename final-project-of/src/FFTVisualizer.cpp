@@ -140,7 +140,7 @@ void FFTVisualizer::drawWaveformAndFrequencyBars() {
     // Then, display the messages.
     
     ofSetColor(255, 255, 255);
-    temporary_font_loader_.drawString("Frequency Waveform", 10, 20);
+    temporary_font_loader_.drawString("Frequency Bars", 10, 20);
     temporary_font_loader_.drawString("Time Waveform", 10, 20 + ofGetHeight()/2 + 50);
     
 }

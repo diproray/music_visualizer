@@ -43,6 +43,8 @@ class Moving2DGraphVisualizer {
     
             float delta_time_; // stores the last updated time change
     
+            float threshold_distance_;
+    
         public:
     
             int mode = 1; // display mode 1: lines, display mode 2: triangles
@@ -75,6 +77,19 @@ class Moving2DGraphVisualizer {
              * Getter for the number of bands of the visualizer.
              */
             int getNumberOfBands();
+    
+            /**
+             * The following function is responsible for updating
+             * the threshold distance value.
+             */
+            void updateThresholdDistanceValue(float new_value);
+    
+            /**
+             * The following function is responsible for updating
+             * the display mode.
+             */
+            void updateDisplayMode(int new_mode);
+    
 };
 
 #endif /* Moving2DGraphVisualizer_h */

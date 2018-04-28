@@ -159,6 +159,8 @@ void ofApp::draw() {
         ofSetColor(0, 0, 0);
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
         
+        gui_->draw();
+        
     }
     
     else if (current_state_ == MOVING_3D_GRAPH_VIZ) {
@@ -212,6 +214,25 @@ void ofApp::keyPressed(int key) {
         
         if (current_state_ == MENU) {
             
+            // GUI initialisation for 2D graph visualizer.
+            
+            gui_ = new ofxDatGui(0.7 * ofGetWidth(), 40);
+            gui_->setAssetPath("");
+            gui_->addSlider("THRESHOLD DIST.", 10, 100, 40);
+            
+            std::vector<string> display_options = {"LINES", "TRIANGLES"};
+            gui_->addDropdown("DISPLAY MODE", display_options);
+            
+            gui_->addFooter();
+            gui_->getFooter()->setLabelWhenExpanded("CLOSE PANEL");
+            gui_->getFooter()->setLabelWhenCollapsed("EXPAND PANEL");
+            
+            gui_->onSliderEvent(this, &ofApp::onSliderEvent);
+            gui_->onDropdownEvent(this, &ofApp::onDropdownEvent);
+            
+            gui_->setTheme(new ofxDatGuiThemeMidnight());
+            
+            
             // Move to the Moving Graph Visualization screen.
             // Intialize the object and begin the music and visualization!
             
@@ -225,6 +246,9 @@ void ofApp::keyPressed(int key) {
         }
         
         else if (current_state_ == MOVING_GRAPH_VIZ) {
+            
+           // Remove the gui.
+           delete gui_;
             
             // If G is pressed in the Moving Graph visualization screen,
             // return to the Menu screen, after stopping the music.
@@ -370,6 +394,31 @@ void ofApp::drawMenuAndOptions() {
     
 }
 
+/**
+ * This function is responsible for executing an action based
+ * on moving the slider.
+ */
+void ofApp::onSliderEvent(ofxDatGuiSliderEvent event) {
+    
+    // Update the threshold distance.
+    
+    float new_threshold_distance = (float) event.target->getValue();
+    moving_2d_graph_visualizer_.updateThresholdDistanceValue(new_threshold_distance);
+    
+}
+
+/**
+ * This function is responsible for executing an action based
+ * on clicking a dropdown option.
+ */
+void ofApp::onDropdownEvent(ofxDatGuiDropdownEvent event) {
+    
+    // Update the display mode.
+    
+    int new_display_mode = (event.target->getLabel() == "LINES") ? 1 : 2;
+    moving_2d_graph_visualizer_.updateDisplayMode(new_display_mode);
+    
+}
 
 // The below functions are currently not being used.
 

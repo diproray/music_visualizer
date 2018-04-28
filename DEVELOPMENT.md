@@ -43,3 +43,12 @@
 3. [SOLVED] The graphics change way too fast. It's so fast that it doesn't even look nice. I decide that I need to "slow down" the graphics. Looked it up online, and realised I had to change the frame rate (set to 60 by default). Changing the frame rate to 30 makes the graphics look nicer and allows the user to actually see the waveforms for a moment before they change.
 4. [SOLVED] Since I am using 1024 bands/buffer size, the frequency waveform looks very detailed but the time waveform is really blurry. Looking it up online, I find that since 1024 is a pretty high band size, plotting the waveform points for alternating points will make it less blurry while still keeping the same time waveform.
 5. Time to add this visualization to my application.
+
+## #5 Friday 04/27/2018
+1. [SOLVED] Ran into some problems using ofSoundPlayerExtender within an object. Figured out a workaround - use the extended sound player within ofApp itself, and pass the sound buffer as an input to the FFT visualizer.
+2. Integrated the FFT visualization into my application.
+3. [SOLVED] Couldn't create a new object everytime this visualization is selected. Couldn't assume that the ofxAudioAnalyzer would be deleted automatically. (Evidently, it does not.) Workaround was to only use one object of the FFT visualizer.
+4. Decided to do the same for the other visualizers too. It didn't make any difference in the application. Initially, I assumed using the same object every time would cause problems. Guess I was wrong.
+5. Added a feature to switch songs between two songs.
+6. [SOLVED] ofSoundPlayerExtended caused some problems - unload() did not work properly for it. To solve this, I had to look through the code of ofxSoundPlayerExtended. I found that load() first unloads to remove any previous song, and then loads. That was causing the error. So I removed the unload() command.
+7. Song switching works perfectly! (It, however, needs to be done in the menu screen. If done during a visualization, the app crashes, understandably.) Allowed switching feature to work only in menu screen.

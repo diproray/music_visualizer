@@ -7,15 +7,14 @@ This application is suited to the graphics capabilities of openFrameworks. I pla
 
 ## Libraries
 1. [openFrameworks](http://openframeworks.cc/): The framework used to build the music environment and GUIs.
-2. [Essentia](http://essentia.upf.edu/documentation/#): To extract float values for different qualities of the music OR another major music analysis library for C++
-3. ofXAddons: ofXGui, ofxFft, ofX 3D Graphics
+2. [Essentia](http://essentia.upf.edu/documentation/#): To extract float values for different qualities of the music OR another major music analysis library for C++. I will be using this library through an openFrameworks addon for it called ofxAudioAnalyzer.
+3. ofXAddons: ofxDatGui, ofxFFT, ofxAudioAnalyzer
 
 ## Expected Features
 1. A few visualizations (graph-based, textures etc.) based on the Perlin Noise of the music.
 2. A visual display of the input and output signals of the Fast Fourier Transform on audio files in real-time (audio to be passed in through the microphone). This will make use of the ofxFFT addon of openFrameworks.
 3. A nice GUI for using all visualization and analysis features as a stand-alone application.
 4. (Hopefully/Additional Harder Goal) 3D visualizations of some technical aspects of the sound.
-
 
 ## Rough Checkpoints
 1. Week 1 Code Review: Implementation of 3 or 4 different types of visualizations with a simple GUI for controlling features of these visualizations.

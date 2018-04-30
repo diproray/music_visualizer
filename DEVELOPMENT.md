@@ -61,3 +61,8 @@
    * Look into adding one more technical visualization.
    * Make the menu screen nicer.
 3. Tried different GUIs for the menu screen, but none look very nice. Planning to leave it as text itself.
+
+## #7 Sunday 04/29/2018
+1. Spent a few hours looking into the various features of ofxAudioAnalyzer and thinking about which ones would be best to display in a Technical Analysis/Visualization.
+2. Tried out a few different color schemes and concentric patterns for my moving graph visualizations.
+     * My first visualization looks much cooler now with the color and patterns upgrade! :D

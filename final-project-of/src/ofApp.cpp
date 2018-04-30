@@ -140,8 +140,10 @@ void ofApp::draw() {
         
     } else if (current_state_ == MOVING_GRAPH_VIZ) {
         
-        // Set background to turquoise colour.
-        ofSetBackgroundColorHex(kTurquoiseColourHexValue);
+        // Set background to white colour.
+        // ofSetBackgroundColorHex(kTurquoiseColourHexValue);
+        
+        ofSetBackgroundColor(255, 255, 255);
     
         // Draw the moving graph and equalizer bars
         // for the moving graph visualization.

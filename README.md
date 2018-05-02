@@ -1,1 +1,1 @@
-# CS 126 FinalProject
+# Music Visualizer :musical_note: :notes:

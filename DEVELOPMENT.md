@@ -74,5 +74,5 @@
 1. Finalized a menu screen design. Committed it to the repository.
 2. Final Steps:
    * Write the README.md file.
-   * Add exit isntructions on each visualization screen.
+   * Add exit instructions on each visualization screen. :heavy_check_mark:
    * Add the numerical technical aspects visualizations.

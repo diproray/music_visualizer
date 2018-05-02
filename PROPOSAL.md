@@ -11,10 +11,10 @@ This application is suited to the graphics capabilities of openFrameworks. I pla
 3. ofXAddons: ofxDatGui, ofxFFT, ofxAudioAnalyzer
 
 ## Expected Features
-1. A few visualizations (graph-based, textures etc.) based on the Perlin Noise of the music.
-2. A visual display of the input and output signals of the Fast Fourier Transform on audio files in real-time (audio to be passed in through the microphone). This will make use of the ofxFFT addon of openFrameworks.
-3. A nice GUI for using all visualization and analysis features as a stand-alone application.
-4. (Hopefully/Additional Harder Goal) 3D visualizations of some technical aspects of the sound.
+1. A visualization (graph-based, textures etc.) based on the music using the Perlin Noise feature.
+2. A visual display of the input amplitude and output frequency signals/waveforms of the Fast Fourier Transform on audio files in real-time (audio to be passed in through the microphone). This will make use of the ofxFFT addon of openFrameworks.
+3. A nice app/GUI for using all visualization and analysis features together as a stand-alone openFrameworks application.
+4. (Hopefully/Additional Harder Goal) Three-dimensional visualization of some technical aspects of the sound, using Perlin Noise feature.
 
 ## Rough Checkpoints
 1. Week 1 Code Review: Implementation of 3 or 4 different types of visualizations with a simple GUI for controlling features of these visualizations.

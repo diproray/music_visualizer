@@ -30,7 +30,7 @@ Simply follow the instructions provided on screen to open various visualizations
   * ofxSvg -  to display a SVG file as a background image for the Menu screen.
   * ofxGui - used to build a GUI in my application.
 * Other openFrameworks add-ons: 
-  * [ofxAudioAnalyzer](https://github.com/leozimmerman/ofxAudioAnalyzer) - used to analyze the music data and extract various technical data from it
+  * [ofxAudioAnalyzer](https://github.com/leozimmerman/ofxAudioAnalyzer) - used to analyze the music data and extract various technical data from it. It provided a openFrameworks wrapper for [Essentia](http://essentia.upf.edu/documentation/), the library I initially wanted to use.
   * [ofxAudioDecoder](https://github.com/leozimmerman/ofxAudioDecoder) - used by the audio analyzer to make use of a specialized sound player called ```ofSoundPlayerExtended```
   * [ofxDatGui](https://github.com/braitsch/ofxDatGui) - used to create a visually appealing GUI in a simpler manner than the default ofxGui.
 

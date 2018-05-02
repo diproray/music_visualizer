@@ -53,12 +53,13 @@ class TechnicalVisualizer {
     float odd_to_even_harmonic_ratio_; // the odd to even harmonic enery ratio of the music
     float odd_to_even_harmonic_ratio_normalized_;
     
-    float inharmonicity_;
-    float dissonance_;
+    float inharmonicity_; // the inharmonicity of the music
+    float dissonance_; // the dissonance of the music
     
-    float strong_peak_;
+    float strong_peak_; // the strong peak of the music
     float strong_peak_normalized_;
-    float strong_decay_;
+    
+    float strong_decay_; // the strong decay of the music
     float strong_decay_normalized_;
     
 public:

@@ -66,3 +66,13 @@
 1. Spent a few hours looking into the various features of ofxAudioAnalyzer and thinking about which ones would be best to display in a Technical Analysis/Visualization.
 2. Tried out a few different color schemes and concentric patterns for my moving graph visualizations.
      * My first visualization looks much cooler now with the color and patterns upgrade! :D
+
+## #8 Monday 04/30/2018
+1. Tried out different menu screen designs. Tried to strike a balance between simplicity and aesthetics.
+
+## #9 Tuesday 05/01/2018
+1. Finalized a menu screen design. Committed it to the repository.
+2. Final Steps:
+   * Write the README.md file.
+   * Add exit isntructions on each visualization screen.
+   * Add the numerical technical aspects visualizations.

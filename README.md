@@ -11,7 +11,7 @@ Going into a bit more detail, it has the following visualizations:
   * A visualization displaying the amplitude waveform of the audio along with frequency (intensity) bars. This is called the FFT Visualization as it shows the input to the Fast Fourier Transform (the amplitude waveform) and its output (the intensity values for frequency bands). This visualization uses the ofxAudioAnalyzer add-on to perform the transform and get input and output data. This visualization is particularly interesting to note how the actual audio, input and output vary with each other.
   
 ### Building the Project
-* The repository ```final-project-diproray``` contains a folder ```final-project-of``` that contains all files required to run the openFrameworks application. The easiest way tobuild and run the application is through Xcode.
+* The repository ```final-project-diproray``` contains a folder ```final-project-of``` that contains all files required to run the openFrameworks application. The easiest way to build and run the application is through Xcode.
 * In ```final-project-of```, a ```.xcodeproj``` is present, which can be used to build and run the project on Xcode.
 * Simply import the ```final-project-of``` in the openFrameworks project generator and insert the following add-ons:
     * [ofxAudioAnalyzer](https://github.com/leozimmerman/ofxAudioAnalyzer).
@@ -20,6 +20,7 @@ Going into a bit more detail, it has the following visualizations:
     * [ofxDatGui](https://github.com/braitsch/ofxDatGui)
     * ofxGui (included in the ```addons``` folder of openFrameworks)
     * ofxSvg (included in the ```addons``` folder of openFrameworks)
+
 ### Application Usage
 Simply follow the instructions provided on screen to open various visualizations. Some visualizations have GUIs which allow you to modify a few visual features.
 
@@ -33,6 +34,8 @@ Simply follow the instructions provided on screen to open various visualizations
   * [ofxAudioDecoder](https://github.com/leozimmerman/ofxAudioDecoder) - used by the audio analyzer to make use of a specialized sound player called ```ofSoundPlayerExtended```
   * [ofxDatGui](https://github.com/braitsch/ofxDatGui) - used to create a visually appealing GUI in a simpler manner than the default ofxGui.
 
+### Relationship b/w the final application and my proposal
+I'm fortunate to have been able to pull off all the features I had initially proposed, including the harder/ambitious goal I had set for myself.
 
 ### Acknowledgements
 1. A lot of thanks to my code review moderator and code review peers for their valuable feedback that helped me improve the application.

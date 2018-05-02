@@ -174,7 +174,9 @@ void ofApp::draw() {
         
         ofSetColor(0, 0, 0);
         temporary_font_loader_.drawString("Press G to exit visualization.", 10, 20);
-        temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
+        temporary_font_loader_.drawString("Now Playing: " +
+                                          song_to_play.substr(song_to_play.find_last_of("\\/") + 1),
+                                          0.78125 * ofGetWidth(), 20);
         
         // Draw the GUI for the visualization.
         
@@ -198,7 +200,9 @@ void ofApp::draw() {
         
         ofSetColor(255, 255, 255);
         temporary_font_loader_.drawString("Press D to exit visualization.", 10, 20);
-        temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
+        temporary_font_loader_.drawString("Now Playing: " +
+                                          song_to_play.substr(song_to_play.find_last_of("\\/") + 1),
+                                          0.78125 * ofGetWidth(), 20);
 
     }
     
@@ -213,7 +217,9 @@ void ofApp::draw() {
         
         ofSetColor(255, 255, 255);
         temporary_font_loader_.drawString("Press F to exit visualization.", 0.435 * ofGetWidth(), 20);
-        temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
+        temporary_font_loader_.drawString("Now Playing: " +
+                                          song_to_play.substr(song_to_play.find_last_of("\\/") + 1),
+                                          0.78125 * ofGetWidth(), 20);
         
     }
     
@@ -228,7 +234,9 @@ void ofApp::draw() {
 
         ofSetColor(255, 255, 255);
         temporary_font_loader_.drawString("Press T to exit visualization.", 0.435 * ofGetWidth(), 20);
-       temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
+        temporary_font_loader_.drawString("Now Playing: " +
+                                         song_to_play.substr(song_to_play.find_last_of("\\/") + 1),
+                                         0.78125 * ofGetWidth(), 20);
     }
 }
 
@@ -272,6 +280,8 @@ void ofApp::keyPressed(int key) {
             
             ofSetWindowTitle("Moving Graph Visualization");
             current_state_ = MOVING_2D_GRAPH_VIZ;
+            
+            sound_player_.load(song_to_play);
             
             // Start playing the song.
             sound_player_.play();
@@ -319,6 +329,8 @@ void ofApp::keyPressed(int key) {
             ofSetWindowTitle("Moving 3D Graph Visualization");
             current_state_ = MOVING_3D_GRAPH_VIZ;
 
+            sound_player_.load(song_to_play);
+            
             // Start playing the song.
             sound_player_.play();
             sound_player_.setPositionMS(60000); // For demo purposes - plays song from the 1 minute mark
@@ -348,6 +360,8 @@ void ofApp::keyPressed(int key) {
             
             ofSetWindowTitle("FFT, Time and Frequency Waveform Visualization");
             current_state_ = FFT_VIZ;
+            
+            extended_sound_player_.load(song_to_play);
             
             // Start playing the song.
             extended_sound_player_.play();
@@ -384,6 +398,8 @@ void ofApp::keyPressed(int key) {
             
             ofSetWindowTitle("Technical Visualization");
             current_state_ = TECHNICAL_VIZ;
+            
+            extended_sound_player_.load(song_to_play);
             
             // Start playing the song.
             extended_sound_player_.play();
@@ -436,6 +452,26 @@ void ofApp::keyPressed(int key) {
             
         }
 
+    }
+    
+    // if the key is M
+    // allow the user to sleect a file from the system's filesystem
+    
+    if (uppercase_key == 'M'){
+        
+        // Open the Open File Dialog
+        ofFileDialogResult musicFileResult = ofSystemLoadDialog("Select a .wav or a .mp3 file.");
+        
+        // Check if the user opened a file
+        if (musicFileResult.bSuccess){
+            
+            ofLogVerbose("User selected a file");
+            song_to_play = musicFileResult.getPath();
+            
+            
+        } else {
+            ofLogVerbose("User hit cancel");
+        }
     }
 
 }

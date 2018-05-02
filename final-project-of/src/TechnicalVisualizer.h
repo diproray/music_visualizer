@@ -90,6 +90,19 @@ public:
      */
     int getNumberOfBands();
     
+    /**
+     * Helper function to draw plots.
+     */
+    void drawPlot(const std::vector<float> & values,
+                                       int graph_width, int graph_height,
+                                       int x, int y, bool should_scale, bool is_mfcc);
+    
+    
+    /**
+     * Helper function to draw bars.
+     */
+    void drawBar(float value, int x, int y, int bar_width, int bar_height);
+    
 };
 
 #endif /* TechnicalVisualizer_h */

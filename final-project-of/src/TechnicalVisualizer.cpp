@@ -107,11 +107,12 @@ void TechnicalVisualizer::draw() {
     
     int left_column_x_offset = 10;
     int initial_plot_y_position = 15;
-    int plot_height = 150;
-    int plot_y_offset = plot_height + 50;
     
-    // Set a width for all graphs/plots
+    // Set a width and height for all graphs/plots
     int graph_width = 450;
+    int graph_height = 150;
+    
+    int plot_y_offset = graph_height + 50;
     
     // First, load the font to be used.
     
@@ -135,69 +136,18 @@ void TechnicalVisualizer::draw() {
     // Unfrotunately, there isn't a simpler way to do this due to the way openFrameworks works, so I can't put repeated code (which
     // shifts coordinates and changes value normalizations) in a loop.
     
-    ofPushMatrix();
+    drawPlot(sound_spectrum_, graph_width, graph_height, left_column_x_offset,
+             initial_plot_y_position, true, false);
     
-    ofTranslate(left_column_x_offset, initial_plot_y_position);
+    drawPlot(tristimulus_, graph_width, graph_height, left_column_x_offset,
+             initial_plot_y_position + plot_y_offset, false, false);
     
-    float bar_width = (float) graph_width / sound_spectrum_.size();
+    drawPlot(mel_bands_, graph_width, graph_height, left_column_x_offset,
+             initial_plot_y_position + 2 * plot_y_offset, true, false);
     
-    for (int index = 0; index < sound_spectrum_.size(); index++){
-        
-        float scaled_value = ofMap(sound_spectrum_[index], DB_MIN, DB_MAX, 0.0, 1.0, true);
-        
-        float bar_height = (- 1) * scaled_value * plot_height;
-        ofDrawRectangle(index * bar_width, plot_height, bar_width, bar_height);
-    }
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    
-    ofTranslate(left_column_x_offset, initial_plot_y_position + plot_y_offset);
-    
-    bar_width = (float) graph_width / tristimulus_.size();
-    
-    for (int index = 0; index < tristimulus_.size(); index++){
-        
-        float scaled_value = tristimulus_[index];
-        
-        float bar_height = (- 1) * scaled_value * plot_height;
-        ofDrawRectangle(index * bar_width, plot_height, bar_width, bar_height);
-    }
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    
-    ofTranslate(left_column_x_offset, initial_plot_y_position + 2 * plot_y_offset);
-    
-    bar_width = (float) graph_width / mel_bands_.size();
-    
-    for (int index = 0; index < mel_bands_.size(); index++){
-        
-        float scaled_value = ofMap(mel_bands_[index], DB_MIN, DB_MAX, 0.0, 1.0, true);
-        
-        float bar_height = (- 1) * scaled_value * plot_height;
-        ofDrawRectangle(index * bar_width, plot_height, bar_width, bar_height);
-    }
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    
-    ofTranslate(left_column_x_offset, initial_plot_y_position + 3 * plot_y_offset - ((plot_y_offset - plot_height) / 2));
-    
-    bar_width = (float) graph_width / mfcc_.size();
-    
-    for (int index = 0; index < mfcc_.size(); index++){
-        
-        float scaled_value = ofMap(mfcc_[index], 0, MFCC_MAX_ESTIMATED_VALUE, 0.0, 1.0, true);
-        
-        float bar_height = (- 1) * scaled_value * plot_height;
-        ofDrawRectangle(index * bar_width, plot_height, bar_width, bar_height);
-    }
-    
-    ofPopMatrix();
+    drawPlot(mfcc_, graph_width, graph_height, left_column_x_offset,
+             initial_plot_y_position + 3 * plot_y_offset - ((plot_y_offset - graph_height) / 2),
+             true, true);
     
     ofPushMatrix();
     
@@ -206,14 +156,14 @@ void TechnicalVisualizer::draw() {
     
     ofTranslate(left_column_x_offset + right_column_x_offset, right_column_initial_y_offset + initial_plot_y_position);
     
-    bar_width = (float) graph_width / hpcp_.size();
+    float bar_width = (float) graph_width / hpcp_.size();
     
     for (int index = 0; index < hpcp_.size(); index++){
         
         float scaled_value = hpcp_[index];
         
-        float bar_height = (- 1) * scaled_value * plot_height;
-        ofDrawRectangle(index * bar_width, plot_height, bar_width, bar_height);
+        float bar_height = (- 1) * scaled_value * graph_height;
+        ofDrawRectangle(index * bar_width, graph_height, bar_width, bar_height);
     }
     
     ofPopMatrix();
@@ -221,85 +171,53 @@ void TechnicalVisualizer::draw() {
     int bar_height = 20;
     int bar_y_offset = 50;
     
-    ofPushMatrix();
-     ofTranslate(left_column_x_offset + right_column_x_offset,
-                 right_column_initial_y_offset + initial_plot_y_position + plot_y_offset);
+    drawBar(rms_normalized_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset,
+            graph_width, bar_height);
     
-    ofDrawRectangle(0, 5, rms_normalized_ * graph_width, bar_height);
+    drawBar(power_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + bar_y_offset,
+            graph_width, bar_height);
     
-    ofPopMatrix();
+    drawBar(pitch_frequency_normalized_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 2 * bar_y_offset,
+            graph_width, bar_height);
     
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + bar_y_offset);
+    drawBar(pitch_confidence_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 3 * bar_y_offset,
+            graph_width, bar_height);
     
-    ofDrawRectangle(0, 5, power_ * graph_width, bar_height);
+    drawBar(hfc_normalized_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 4 * bar_y_offset,
+            graph_width, bar_height);
     
-    ofPopMatrix();
+    drawBar(odd_to_even_harmonic_ratio_normalized_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 5 * bar_y_offset,
+            graph_width, bar_height);
     
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 2 * bar_y_offset);
+    drawBar(inharmonicity_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 6 * bar_y_offset,
+            graph_width, bar_height);
     
-    ofDrawRectangle(0, 5, pitch_frequency_normalized_ * graph_width, bar_height);
+    drawBar(dissonance_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 7 * bar_y_offset,
+            graph_width, bar_height);
     
-    ofPopMatrix();
+    drawBar(strong_peak_normalized_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 8 * bar_y_offset,
+            graph_width, bar_height);
     
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 3 * bar_y_offset);
-    
-    ofDrawRectangle(0, 5, pitch_confidence_ * graph_width, bar_height);
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 4 * bar_y_offset);
-    
-    ofDrawRectangle(0, 5, hfc_normalized_ * graph_width, bar_height);
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 5 * bar_y_offset);
-    
-    ofDrawRectangle(0, 5, odd_to_even_harmonic_ratio_normalized_ * graph_width, bar_height);
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 6 * bar_y_offset);
-    
-    ofDrawRectangle(0, 5, inharmonicity_ * graph_width, bar_height);
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 7 * bar_y_offset);
-    
-    ofDrawRectangle(0, 5, dissonance_ * graph_width, bar_height);
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 8 * bar_y_offset);
-    
-    ofDrawRectangle(0, 5, strong_peak_normalized_ * graph_width, bar_height);
-    
-    ofPopMatrix();
-    
-    ofPushMatrix();
-    ofTranslate(left_column_x_offset + right_column_x_offset,
-                right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 9 * bar_y_offset);
-    
-    ofDrawRectangle(0, 5, strong_decay_normalized_ * graph_width, bar_height);
-    
-    ofPopMatrix();
+    drawBar(strong_decay_normalized_,left_column_x_offset + right_column_x_offset,
+            right_column_initial_y_offset + initial_plot_y_position + plot_y_offset
+            + 9 * bar_y_offset,
+            graph_width, bar_height);
     
     // After drawing all the visualizations, display the texts.
     
@@ -311,7 +229,7 @@ void TechnicalVisualizer::draw() {
     temporary_font_loader_.drawString("Mel Bands: ", left_column_x_offset, initial_plot_y_position + 2 * plot_y_offset);
     
     temporary_font_loader_.drawString("MFCC: ", left_column_x_offset,
-                                      initial_plot_y_position + 3 * plot_y_offset - ((plot_y_offset - plot_height) / 2));
+                                      initial_plot_y_position + 3 * plot_y_offset - ((plot_y_offset - graph_height) / 2));
     
     temporary_font_loader_.drawString("HPCP: ", left_column_x_offset + right_column_x_offset,
                                        right_column_initial_y_offset + initial_plot_y_position);
@@ -350,5 +268,55 @@ void TechnicalVisualizer::draw() {
     temporary_font_loader_.drawString("Strong Decay: " +
                                       ofToString(strong_decay_, 2), left_column_x_offset + right_column_x_offset,
                                       right_column_initial_y_offset + initial_plot_y_position + plot_y_offset + 9 * bar_y_offset);
+    
+}
+
+/**
+ * Helper function to draw plots.
+ */
+void TechnicalVisualizer::drawPlot(const std::vector<float> & values,
+                                   int graph_width, int graph_height, int x, int y, bool should_scale, bool is_mfcc) {
+    
+    ofPushMatrix();
+    
+    ofTranslate(x, y);
+    
+    float bar_width = (float) graph_width / values.size();
+    
+    for (int index = 0; index < values.size(); index++){
+        
+        float scaled_value;
+        
+        if (should_scale) {
+            
+            if (is_mfcc) {
+                scaled_value = ofMap(values[index], 0, MFCC_MAX_ESTIMATED_VALUE, 0.0, 1.0, true);
+            } else {
+                scaled_value = ofMap(values[index], DB_MIN, DB_MAX, 0.0, 1.0, true);
+            }
+            
+        } else {
+            scaled_value = values[index];
+        }
+        
+        float bar_height = (- 1) * scaled_value * graph_height;
+        ofDrawRectangle(index * bar_width, graph_height, bar_width, bar_height);
+    }
+    
+    ofPopMatrix();
+    
+}
+
+/**
+ * Helper function to draw bars.
+ */
+void TechnicalVisualizer::drawBar(float value, int x, int y, int bar_width, int bar_height) {
+    
+    ofPushMatrix();
+    ofTranslate(x, y);
+    
+    ofDrawRectangle(0, 5, value * bar_width, bar_height);
+    
+    ofPopMatrix();
     
 }

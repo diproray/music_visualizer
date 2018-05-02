@@ -30,6 +30,10 @@ Moving2DGraphVisualizer::Moving2DGraphVisualizer() noexcept {
     // Set number of particles to 300.
     total_number_of_particles_ = 300;
     
+    // The idea of using offsets values to get weighted Perlin Noise values
+    // is derived from explanations of Perlin Noise in
+    // https://www.safaribooksonline.com/library/view/mastering-openframeworks-creative/9781849518048/apb.html
+    //
     // Intialize all particles' x and y positions to a random value
     // between 0 and 2000. This uses ofRandom() function of openFrameworks.
     
@@ -93,6 +97,9 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
     
     for (int index = 0; index < number_of_bands_; index++) {
         
+        // The idea of spectrum smoothing to get visually pleasing effects is derived from
+        // https://forum.openframeworks.cc/t/how-can-i-get-signal-from-audio-interface/21700/4
+        //
         // First, the old spectrum values are multiplied by a factor of 0.96.
         // Then, the new value is set to max(modified old value, new value).
         // This is done to "smooth" out the values.
@@ -145,6 +152,9 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
         particle_offset_x_axis_vector_[index] += particle_velocity_ * delta_time;
         particle_offset_y_axis_vector_[index] += particle_velocity_ * delta_time;
         
+        // The below code is derived from example code snippets showing the use of OfSignedNoise() in
+        // https://www.safaribooksonline.com/library/view/mastering-openframeworks-creative/9781849518048/apb.html
+        //
         // Set each particle's position equal to the graph's radius * (Perlin Noise for offset between [-1, 1])
         // To learn more about Perlin Noise, check out: https://mzucker.github.io/html/perlin-noise-math-faq.html
         // Perlin Noise provides continuous values in the specified range, which is useful for graphics

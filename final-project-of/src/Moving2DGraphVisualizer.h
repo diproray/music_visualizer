@@ -64,14 +64,14 @@ class Moving2DGraphVisualizer {
              * @param new_spectrum_values - the updated spectrum values which
              *                              spectrum_values_array_ must be updated with
              */
-            void updateValuesForMovingGraphVisualizer(float * new_spectrum_values);
+            void update(float * new_spectrum_values);
     
             /**
              * The following function is responsible for drawing
              * the moving graph and associated
              * equalizer bars.
              */
-            void drawEqualizerBarsAndMovingGraph();
+            void draw();
     
             /**
              * Getter for the number of bands of the visualizer.

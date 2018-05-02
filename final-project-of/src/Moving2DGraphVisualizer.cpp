@@ -90,7 +90,7 @@ Moving2DGraphVisualizer::Moving2DGraphVisualizer() noexcept {
  * @param new_spectrum_values - the updated spectrum values which
  *                              spectrum_values_array_ must be updated with
  */
-void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_spectrum_values) {
+void Moving2DGraphVisualizer::update(float * new_spectrum_values) {
     
     // Update the values in spectrum_values_array_
     // to reflect the new spectrum band values.
@@ -170,7 +170,7 @@ void Moving2DGraphVisualizer::updateValuesForMovingGraphVisualizer(float * new_s
  * the moving graph and associated
  * equalizer bars.
  */
-void Moving2DGraphVisualizer::drawEqualizerBarsAndMovingGraph() {
+void Moving2DGraphVisualizer::draw() {
     
     // NOTE: The values for drawing various objects are tuned for
     // a 1024 x 768 pixels window.

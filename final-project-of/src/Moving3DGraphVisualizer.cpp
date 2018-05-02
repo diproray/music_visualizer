@@ -46,9 +46,9 @@ Moving3DGraphVisualizer::Moving3DGraphVisualizer() noexcept {
  * The following function updates all the extra values for
  * the moving 3D graph visualizer.
  */
-void Moving3DGraphVisualizer::updateValuesForMoving3DGraphVisualizer(float * new_spectrum_values) {
+void Moving3DGraphVisualizer::update(float * new_spectrum_values) {
     
-    updateValuesForMovingGraphVisualizer(new_spectrum_values);
+    Moving2DGraphVisualizer::update(new_spectrum_values);
     
     // After updating values which overlap with Graph (2D)
     // for all particles,
@@ -89,7 +89,7 @@ void Moving3DGraphVisualizer::updateValuesForMoving3DGraphVisualizer(float * new
  * the 3D moving graph and associated
  * equalizer bars.
  */
-void Moving3DGraphVisualizer::drawEqualizerBarsAndMoving3DGraph() {
+void Moving3DGraphVisualizer::draw() {
     
     // NOTE: The below values are tuned for a 1024 x 768 pixels window.
     

@@ -45,7 +45,7 @@ FFTVisualizer::FFTVisualizer() noexcept {
  * @param sound_buffer - the sound buffer which
  *                              contains sound for the moment, to be updated with
  */
-void FFTVisualizer::updateValuesForFFTVisualizer(ofSoundBuffer sound_buffer) {
+void FFTVisualizer::update(ofSoundBuffer sound_buffer) {
     
     // Let the audio analyzer analyze the current sound buffer.
     audio_analyzer_.analyze(sound_buffer);
@@ -80,7 +80,7 @@ void FFTVisualizer::updateValuesForFFTVisualizer(ofSoundBuffer sound_buffer) {
  * the time waveform and associated
  * frequency bars.
  */
-void FFTVisualizer::drawWaveformAndFrequencyBars() {
+void FFTVisualizer::draw() {
     
     // Set the background color to gray.
     ofBackground(34, 34, 34);

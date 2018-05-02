@@ -8,6 +8,7 @@
 #include "ofxDatGui.h"
 #include "FFTVisualizer.h"
 #include "ofxSvg.h"
+#include "TechnicalVisualizer.h"
 
 /**
  * The ofApp class that contains all the functions which are executed when main() is run.
@@ -16,9 +17,10 @@ class ofApp : public ofBaseApp {
     
     enum ApplicationState {
         MENU,
-        MOVING_GRAPH_VIZ,
+        MOVING_2D_GRAPH_VIZ,
         MOVING_3D_GRAPH_VIZ,
-        FFT_VIZ
+        FFT_VIZ,
+        TECHNICAL_VIZ
     };
     
     ApplicationState current_state_; // this variable tracks the current state of the application
@@ -38,6 +40,8 @@ class ofApp : public ofBaseApp {
                           // on real time data
     
     FFTVisualizer fft_visualizer_; // an object which runs the FFT visualization
+    
+    TechnicalVisualizer tech_visualizer_; // an object that runs the technical visualization
     
     ofxDatGui * gui_; // the GUI for the program
     

@@ -43,14 +43,14 @@ class Moving3DGraphVisualizer : protected Moving2DGraphVisualizer {
          * The following function updates all the extra values for
          * the moving 3D graph visualizer.
          */
-        void updateValuesForMoving3DGraphVisualizer(float * new_spectrum_values);
+        void update(float * new_spectrum_values);
     
         /**
          * The following function is responsible for drawing
          * the 3D moving graph and associated
          * equalizer bars.
          */
-        void drawEqualizerBarsAndMoving3DGraph();
+        void draw();
     
         /**
          * Getter for the number of bands of the visualizer.

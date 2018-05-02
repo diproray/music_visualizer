@@ -44,14 +44,14 @@ class FFTVisualizer {
     * @param sound_buffer - the sound buffer which
     *                              contains sound for the moment, to be updated with
     */
-    void updateValuesForFFTVisualizer(ofSoundBuffer sound_buffer);
+    void update(ofSoundBuffer sound_buffer);
     
     /**
      * The following function is responsible for drawing
      * the time waveform and associated
      * frequency bars.
      */
-    void drawWaveformAndFrequencyBars();
+    void draw();
     
     /**
      * Getter for the number of bands of the visualizer.

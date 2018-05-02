@@ -50,6 +50,10 @@ void ofApp::setup() {
     
     fft_visualizer_ = FFTVisualizer();
     
+     // The below line calls the function that initializes all resources
+     // for the technical visualizer.
+    
+     tech_visualizer_ = TechnicalVisualizer();
     
     // Load the font (.ttf file from ../bin/data directory)
     // which the text is to be displayed in.
@@ -84,7 +88,7 @@ void ofApp::setup() {
  */
 void ofApp::update() {
     
-    if (current_state_ == MOVING_GRAPH_VIZ || current_state_ == MOVING_3D_GRAPH_VIZ) {
+    if (current_state_ == MOVING_2D_GRAPH_VIZ || current_state_ == MOVING_3D_GRAPH_VIZ) {
         
         // Update the sound player's states.
         // This updates the current time value in the ofSoundPlayer
@@ -92,7 +96,7 @@ void ofApp::update() {
         
         ofSoundUpdate();
         
-        if (current_state_ == MOVING_GRAPH_VIZ) {
+        if (current_state_ == MOVING_2D_GRAPH_VIZ) {
             
             // Get the newly updated spectrum values.
             // These are values for various frequencies within the specified number of bands.
@@ -102,7 +106,7 @@ void ofApp::update() {
             // Update the spectrum_value_array_ of the moving 2D graph visualizer with these values
             // by calling the function responsible for it.
             
-            moving_2d_graph_visualizer_.updateValuesForMovingGraphVisualizer(current_sound_spectrum_values);
+            moving_2d_graph_visualizer_.update(current_sound_spectrum_values);
             
         }
         
@@ -116,7 +120,7 @@ void ofApp::update() {
             // Update the spectrum_value_array_ of the moving graph visualizer with these values
             // by calling the function responsible for it.
             
-            moving_3d_graph_visualizer_.updateValuesForMoving3DGraphVisualizer(current_sound_spectrum_values);
+            moving_3d_graph_visualizer_.update(current_sound_spectrum_values);
 
         }
         
@@ -127,8 +131,16 @@ void ofApp::update() {
         ofSoundBuffer current_sound_buffer = extended_sound_player_.getCurrentSoundBuffer(fft_visualizer_.getNumberOfBands());
         
         // Update the values of the FFT visualizer.
-        fft_visualizer_.updateValuesForFFTVisualizer(current_sound_buffer);
+        fft_visualizer_.update(current_sound_buffer);
         
+    } else if (current_state_ == TECHNICAL_VIZ) {
+        
+        // Get the sound buffer for the current sound being played.
+        
+        ofSoundBuffer current_sound_buffer = extended_sound_player_.getCurrentSoundBuffer(tech_visualizer_.getNumberOfBands());
+        
+        // Update the values of the Technical Visualizer.
+        tech_visualizer_.update(current_sound_buffer);
     }
 
 }
@@ -144,7 +156,7 @@ void ofApp::draw() {
         svg_.draw();
         drawMenuAndOptions();
         
-    } else if (current_state_ == MOVING_GRAPH_VIZ) {
+    } else if (current_state_ == MOVING_2D_GRAPH_VIZ) {
         
         // Set background to white colour.
         // ofSetBackgroundColorHex(kTurquoiseColourHexValue);
@@ -154,7 +166,7 @@ void ofApp::draw() {
         // Draw the moving graph and equalizer bars
         // for the moving graph visualization.
     
-        moving_2d_graph_visualizer_.drawEqualizerBarsAndMovingGraph();
+        moving_2d_graph_visualizer_.draw();
         
         // Display a "Now Playing :" + the song's name, in Helvetica font.
 
@@ -178,7 +190,7 @@ void ofApp::draw() {
         // Draw the moving graph and equalizer bars
         // for the moving graph visualization.
 
-        moving_3d_graph_visualizer_.drawEqualizerBarsAndMoving3DGraph();
+        moving_3d_graph_visualizer_.draw();
         
         // Display a "Now Playing :" + the song's name, in Helvetica font.
 
@@ -189,10 +201,11 @@ void ofApp::draw() {
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
 
     }
+    
     else if (current_state_ == FFT_VIZ) {
         
         // Draw the time waveform and frequency bars of the FFT visualization.
-        fft_visualizer_.drawWaveformAndFrequencyBars();
+        fft_visualizer_.draw();
         
         // Display a "Now Playing :" + the song's name, in Helvetica font.
 
@@ -202,6 +215,20 @@ void ofApp::draw() {
         temporary_font_loader_.drawString("Press F to exit visualization.", 0.435 * ofGetWidth(), 20);
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
         
+    }
+    
+    else if (current_state_ == TECHNICAL_VIZ) {
+        
+        // Draw the technical visualization.
+        tech_visualizer_.draw();
+        
+        // Display a "Now Playing :" + the song's name, in Helvetica font.
+        
+       temporary_font_loader_.load("helvetica.ttf", 10);
+
+        ofSetColor(255, 255, 255);
+        temporary_font_loader_.drawString("Press T to exit visualization.", 0.435 * ofGetWidth(), 20);
+       temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
     }
 }
 
@@ -244,7 +271,7 @@ void ofApp::keyPressed(int key) {
             // Intialize the object and begin the music and visualization!
             
             ofSetWindowTitle("Moving Graph Visualization");
-            current_state_ = MOVING_GRAPH_VIZ;
+            current_state_ = MOVING_2D_GRAPH_VIZ;
             
             // Start playing the song.
             sound_player_.play();
@@ -252,7 +279,7 @@ void ofApp::keyPressed(int key) {
             
         }
         
-        else if (current_state_ == MOVING_GRAPH_VIZ) {
+        else if (current_state_ == MOVING_2D_GRAPH_VIZ) {
             
            // Remove the gui.
            delete gui_;
@@ -310,6 +337,7 @@ void ofApp::keyPressed(int key) {
             sound_player_.stop();
         }
     }
+    // If the key is F
     
     else if (uppercase_key == 'F') {
         
@@ -338,6 +366,42 @@ void ofApp::keyPressed(int key) {
             
             // Restore line width to 1.
             ofSetLineWidth(1);
+            
+            // Stop playing the song.
+            extended_sound_player_.stop();
+            
+        }
+        
+    }
+    // if the key is T
+    
+    else if (uppercase_key == 'T') {
+        
+        if (current_state_ == MENU) {
+            
+            // Move to the Technical Visualization screen.
+            // Initialize resources and begin the music and visualization!
+            
+            ofSetWindowTitle("Technical Visualization");
+            current_state_ = TECHNICAL_VIZ;
+            
+            // Start playing the song.
+            extended_sound_player_.play();
+            extended_sound_player_.setPositionMS(60000); // For demo purposes - plays song from the 1 minute mark
+            
+            
+        }
+        
+        else if (current_state_ == TECHNICAL_VIZ) {
+            
+            // If F is pressed in the Technical Visualization screen,
+            // return to the Menu screen, after deallocating the Moving Graph Visualizer's resources and stopping the music.
+            
+            ofSetWindowTitle("Menu");
+            current_state_ = MENU;
+            
+            // Restore line width to 1.
+            // ofSetLineWidth(1);
             
             // Stop playing the song.
             extended_sound_player_.stop();
@@ -394,7 +458,7 @@ void ofApp::drawMenuAndOptions() {
     
     temporary_font_loader_.drawString("MUSIC VISUALIZER", ofGetWidth() / 4, ofGetHeight() / 2);
 
-    string menu_message = "Press G, D or F for visualizations. \n\n";
+    string menu_message = "Press G, D, F or T for visualizations. \n\n";
     menu_message       += "      Press S to switch songs.";
     
     // Display the string.

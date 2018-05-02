@@ -77,7 +77,7 @@
    * Add exit instructions on each visualization screen. :heavy_check_mark:
    * Add the numerical technical aspects visualizations. :heavy_check_mark:
 
-## #9 Wednesday 05/02/2018
+## #10 Wednesday 05/02/2018
 1. Repo is now updated with an informative README.
 2. Uploaded screenshots of different states of the application.
 3. Finally, added my fourth technical visualization! :D

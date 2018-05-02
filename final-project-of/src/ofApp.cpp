@@ -495,7 +495,8 @@ void ofApp::drawMenuAndOptions() {
     temporary_font_loader_.drawString("MUSIC VISUALIZER", ofGetWidth() / 4, ofGetHeight() / 2);
 
     string menu_message = "Press G, D, F or T for visualizations. \n\n";
-    menu_message       += "      Press S to switch songs.";
+    menu_message       += "      Press S to switch songs.\n\n";
+    menu_message       += "      Press M to import a song.";
     
     // Display the string.
     text_font_loader_.drawString(menu_message, ofGetWidth() / 3.15, 100 + ofGetHeight() / 2);

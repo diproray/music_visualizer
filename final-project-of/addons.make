@@ -3,3 +3,4 @@ ofxAudioDecoder
 ofxDatGui
 ofxFFT
 ofxGui
+ofxSvg

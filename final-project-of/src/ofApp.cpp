@@ -13,6 +13,8 @@ const int kBlackColourHexValue = 0x000000; // the int (hex) value for black colo
 
 std::string song_to_play = "indian_summer.mp3"; // string containing the name of the song to be played
 
+ofTrueTypeFont temporary_font_loader_; // an extra font loader for different fonts used within the app
+
 // Functions to be run are decided based on the state of the application.
 // E.g. if the state is MENU, functions pertaining to the Menu screen are run.
 //      The same applies for the other states.
@@ -71,6 +73,9 @@ void ofApp::setup() {
     
     sound_player_.setSpeed(kDefaultSongPlaySpeed);
     extended_sound_player_.setSpeed(kDefaultSongPlaySpeed);
+    
+    // Load the SVG background Menu image.
+    svg_.load("pattern.svg");
     
 }
 
@@ -136,6 +141,7 @@ void ofApp::draw() {
     
     if (current_state_ == MENU) {
         
+        svg_.draw();
         drawMenuAndOptions();
         
     } else if (current_state_ == MOVING_GRAPH_VIZ) {
@@ -151,12 +157,13 @@ void ofApp::draw() {
         moving_2d_graph_visualizer_.drawEqualizerBarsAndMovingGraph();
         
         // Display a "Now Playing :" + the song's name, in Helvetica font.
-        
-        ofTrueTypeFont temporary_font_loader_;
+
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(0, 0, 0);
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
+        
+        // Draw the GUI for the visualization.
         
         gui_->draw();
         
@@ -173,8 +180,7 @@ void ofApp::draw() {
         moving_3d_graph_visualizer_.drawEqualizerBarsAndMoving3DGraph();
         
         // Display a "Now Playing :" + the song's name, in Helvetica font.
-        
-        ofTrueTypeFont temporary_font_loader_;
+
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(255, 255, 255);
@@ -187,8 +193,7 @@ void ofApp::draw() {
         fft_visualizer_.drawWaveformAndFrequencyBars();
         
         // Display a "Now Playing :" + the song's name, in Helvetica font.
-        
-        ofTrueTypeFont temporary_font_loader_;
+
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(255, 255, 255);
@@ -378,18 +383,19 @@ void ofApp::drawMenuAndOptions() {
     ofSetBackgroundColor(255, 255, 255);
     
     // Set the text colour to black.
-    ofSetColor(0, 0, 0);
-    
+    ofSetColor(255, 255, 255);
+
     // Form the string to be displayed.
     
-    string menu_message = "                 MUSIC VISUALIZER\n\n";
-    menu_message += "1. Moving Graph Visualization (Press G)\n\n";
-    menu_message += "2. Moving 3D Graph Visualization (Press D)\n\n";
-    menu_message += "3. FFT, Time and Frequency Waveform Visualization (Press F)\n\n";
-    menu_message += "4. Switch Song (Press S)";
+    temporary_font_loader_.load("helvetica_bold.ttf", 45);
+    
+    temporary_font_loader_.drawString("MUSIC VISUALIZER", ofGetWidth() / 4, ofGetHeight() / 2);
+
+    string menu_message = "Press G, D or F for visualizations. \n\n";
+    menu_message       += "      Press S to switch songs.";
     
     // Display the string.
-    text_font_loader_.drawString(menu_message, ofGetWidth() / 4, ofGetHeight() / 4);
+    text_font_loader_.drawString(menu_message, ofGetWidth() / 3.15, 100 + ofGetHeight() / 2);
     
 }
 

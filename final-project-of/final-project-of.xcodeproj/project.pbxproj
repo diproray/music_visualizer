@@ -9,6 +9,233 @@
 		<string>46</string>
 		<key>objects</key>
 		<dict>
+			<key>893232D066C477DCBA4C3293</key>
+			<dict>
+				<key>fileRef</key>
+				<string>9B956ABC1845578307A7EC6B</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>9B956ABC1845578307A7EC6B</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>svgtiny_list.cpp</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src/svgtiny_list.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>994340D89F2DA12F547B87EF</key>
+			<dict>
+				<key>fileRef</key>
+				<string>6A66F8999ED778DE09EFEEEB</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>6A66F8999ED778DE09EFEEEB</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>svgtiny_gradient.cpp</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src/svgtiny_gradient.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>8CC803600C8B41D4ED68B796</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>svgtiny.h</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src/svgtiny.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>78BDB8E2ACCD0462712B85CF</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>svgtiny_internal.h</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src/svgtiny_internal.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>8F32C46EA46B6B9543C3BDD7</key>
+			<dict>
+				<key>fileRef</key>
+				<string>06F3C26F527629F8EDED8307</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>06F3C26F527629F8EDED8307</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>svgtiny.cpp</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src/svgtiny.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>5CE3B297CDC4075D3D2398C5</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>14D12FBF1FD604395540DEB6</string>
+					<string>06F3C26F527629F8EDED8307</string>
+					<string>78BDB8E2ACCD0462712B85CF</string>
+					<string>8CC803600C8B41D4ED68B796</string>
+					<string>6A66F8999ED778DE09EFEEEB</string>
+					<string>9B956ABC1845578307A7EC6B</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>31941BAC71B339F7A3E32124</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>5CE3B297CDC4075D3D2398C5</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>svgTiny</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>BF0BF2682B4F1C8B2D7A515B</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>31941BAC71B339F7A3E32124</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>libs</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>89CF9CEE46967E01CE235CF0</key>
+			<dict>
+				<key>fileRef</key>
+				<string>14D12FBF1FD604395540DEB6</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>14D12FBF1FD604395540DEB6</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>src_colors.cpp</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src/src_colors.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>CFEED42CDE7C9FC14E89ED56</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxSvg.h</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/src/ofxSvg.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>DBB3EF673AE7E843FD50910D</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>8791B518382CAD1C04E3736C</string>
+					<string>CFEED42CDE7C9FC14E89ED56</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>F5F1F1EF8441E64FD46F07C8</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>DBB3EF673AE7E843FD50910D</string>
+					<string>BF0BF2682B4F1C8B2D7A515B</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxSvg</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>4DC3FFF757F10DF250A141EF</key>
+			<dict>
+				<key>fileRef</key>
+				<string>8791B518382CAD1C04E3736C</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>8791B518382CAD1C04E3736C</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxSvg.cpp</string>
+				<key>path</key>
+				<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/src/ofxSvg.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>1597797374FCDAF5B37E910F</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -3390,6 +3617,7 @@
 					<string>D8DD1043C333F6F63C8685E6</string>
 					<string>38D6D30992FE734203F60492</string>
 					<string>480A780D8D0308AE4A368801</string>
+					<string>F5F1F1EF8441E64FD46F07C8</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -3585,6 +3813,10 @@
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
 					<string>$(SRCROOT)/bin/</string>
@@ -3684,6 +3916,10 @@
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
 					<string>$(SRCROOT)/bin/</string>
@@ -3767,6 +4003,11 @@
 					<string>E0AFB0EC86E08095D404354D</string>
 					<string>FC14B138F37C26AF1BA7EFD7</string>
 					<string>8A674F105D9702940C3A1FAB</string>
+					<string>4DC3FFF757F10DF250A141EF</string>
+					<string>89CF9CEE46967E01CE235CF0</string>
+					<string>8F32C46EA46B6B9543C3BDD7</string>
+					<string>994340D89F2DA12F547B87EF</string>
+					<string>893232D066C477DCBA4C3293</string>
 				</array>
 				<key>isa</key>
 				<string>PBXSourcesBuildPhase</string>
@@ -3893,6 +4134,10 @@
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
 					<string>YES</string>
@@ -3983,6 +4228,10 @@
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/libs</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxFFT/src</string>
 						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxGui/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/libs/svgTiny/src</string>
+						<string>../../CS_126/of_v0.9.8_osx_release/addons/ofxSvg/src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
 					<string>YES</string>

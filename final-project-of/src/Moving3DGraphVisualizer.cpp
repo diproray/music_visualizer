@@ -118,7 +118,7 @@ void Moving3DGraphVisualizer::drawEqualizerBarsAndMoving3DGraph() {
         
         // Draw the rectangle for the band with the specified colour.
         
-        ofDrawRectangle(10 + bandNumber * 7, 700, 5, -spectrum_values_vector_[bandNumber] * 150);
+        ofDrawRectangle(bandNumber * 7, 700, 5, -spectrum_values_vector_[bandNumber] * 150);
     }
     
     // Save the current coordinate system, so that it can be restored later.

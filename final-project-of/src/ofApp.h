@@ -7,6 +7,7 @@
 #include "ofSoundPlayerExtended.h"
 #include "ofxDatGui.h"
 #include "FFTVisualizer.h"
+#include "ofxSvg.h"
 
 /**
  * The ofApp class that contains all the functions which are executed when main() is run.
@@ -40,10 +41,9 @@ class ofApp : public ofBaseApp {
     
     ofxDatGui * gui_; // the GUI for the program
     
-	public:
+    ofxSVG svg_; // the loader and displayer for an SVG file
     
-//    void drawWaveforms();
-//    void audioIn(float * input, int bufferSize, int nChannels);
+	public:
     
         /**
          * The following function sets up the resources for the application.

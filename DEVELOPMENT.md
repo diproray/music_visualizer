@@ -81,5 +81,9 @@
 1. Repo is now updated with an informative README.
 2. Uploaded screenshots of different states of the application.
 3. Finally, added my fourth technical visualization! :D
-4. *I get to present my project today. Yay!*
+4. *I got to present my project today. Yay!*
+5. 4th viz code was a bit messy and reptitive - fixed that.
+6. Added the feature to import an audio file from the system filesystem manually.
+7. Edited menu screen to include directions to be able to import audio files.
+8. I think I am mostly done with the project, at this point.
 

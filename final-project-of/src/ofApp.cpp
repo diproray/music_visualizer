@@ -161,6 +161,7 @@ void ofApp::draw() {
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(0, 0, 0);
+        temporary_font_loader_.drawString("Press G to exit visualization.", 10, 20);
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
         
         // Draw the GUI for the visualization.
@@ -184,6 +185,7 @@ void ofApp::draw() {
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(255, 255, 255);
+        temporary_font_loader_.drawString("Press D to exit visualization.", 10, 20);
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
 
     }
@@ -197,6 +199,7 @@ void ofApp::draw() {
         temporary_font_loader_.load("helvetica.ttf", 10);
         
         ofSetColor(255, 255, 255);
+        temporary_font_loader_.drawString("Press F to exit visualization.", 0.435 * ofGetWidth(), 20);
         temporary_font_loader_.drawString("Now Playing: " + song_to_play, 0.78125 * ofGetWidth(), 20);
         
     }

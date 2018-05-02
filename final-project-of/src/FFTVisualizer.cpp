@@ -101,8 +101,9 @@ void FFTVisualizer::drawWaveformAndFrequencyBars() {
     ofPushMatrix();
     ofTranslate(0, 50);
     
-    // Set the color to light green.
-    ofSetColor(51, 255, 187);
+    // Set the color to light blue. // ofSetColor(51, 255, 187);
+    
+    ofSetColor(153, 204, 255);
     
     // Decide the width of each bar to be drawn.
     float bar_width = (float) length_of_frequency_bar_plot / sound_spectrum_.size();

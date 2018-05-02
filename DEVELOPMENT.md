@@ -73,6 +73,13 @@
 ## #9 Tuesday 05/01/2018
 1. Finalized a menu screen design. Committed it to the repository.
 2. Final Steps:
-   * Write the README.md file.
+   * Write the README.md file. :heavy_check_mark:
    * Add exit instructions on each visualization screen. :heavy_check_mark:
-   * Add the numerical technical aspects visualizations.
+   * Add the numerical technical aspects visualizations. :heavy_check_mark:
+
+## #9 Wednesday 05/02/2018
+1. Repo is now updated with an informative README.
+2. Uploaded screenshots of different states of the application.
+3. Finally, added my fourth technical visualization! :D
+4. *I get to present my project today. Yay!*
+

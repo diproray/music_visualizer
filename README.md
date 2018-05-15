@@ -1,5 +1,5 @@
 # Music Visualizer :musical_note: :notes:
-## CS 126 Final Project by Dipro Ray
+## An Application by Dipro Ray
 
 ### Application Summary
 The application is a music visualizer. It contains 4 different types of visualizations that extract different technical features (such as intensity values for given frequency range, amplitude values, melody bands, rms etc.) from the audio, and uses this data to create visually appealing structures that move/change in relation with the sound (for example, using features such as Perlin Noise).

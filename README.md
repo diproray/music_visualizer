@@ -11,6 +11,8 @@ Going into a bit more detail, it has the following visualizations:
   * A visualization displaying the amplitude waveform of the audio along with frequency (intensity) bars. This is called the FFT Visualization as it shows the input to the Fast Fourier Transform (the amplitude waveform) and its output (the intensity values for frequency bands). This visualization uses the ofxAudioAnalyzer add-on to perform the transform and get input and output data. This visualization is particularly interesting to note how the actual audio, input and output vary with each other.
   * A visualization displaying various technical, numerical aspects of the audio data. Its purpose is similar to the third visualization, in that it is meant to reveal intuitive relationships between the actual audio, intensity spectrum and other technical aspects (RMS, Pitch Confidence, Mel Bands, HPCP, MFCC, etc.)
   
+Check out ```project_screenshots``` directory for screenshots of the visualizations!
+
 ### Building the Project
 * The repository ```final-project-diproray``` contains a folder ```final-project-of``` that contains all files required to run the openFrameworks application. The easiest way to build and run the application is through Xcode.
 * In ```final-project-of```, a ```.xcodeproj``` is present, which can be used to build and run the project on Xcode.
@@ -35,9 +37,5 @@ Simply follow the instructions provided on screen to open various visualizations
   * [ofxAudioDecoder](https://github.com/leozimmerman/ofxAudioDecoder) - used by the audio analyzer to make use of a specialized sound player called ```ofSoundPlayerExtended```
   * [ofxDatGui](https://github.com/braitsch/ofxDatGui) - used to create a visually appealing GUI in a simpler manner than the default ofxGui.
 
-### Relationship b/w the final application and my proposal
-I'm fortunate to have been able to pull off all the features I had initially proposed, including the harder/ambitious goal I had set for myself.
-
 ### Acknowledgements
-1. A lot of thanks to my code review moderator and code review peers for their valuable feedback that helped me improve the application.
-2. This [book](https://www.safaribooksonline.com/library/view/mastering-openframeworks-creative/9781849518048/apb.html) whose Perlin Noise chapter helped me discover this wonderful technical concept, playing around with which allowed me think of music visualizations in a very innovative manner.
+This [book](https://www.safaribooksonline.com/library/view/mastering-openframeworks-creative/9781849518048/apb.html) whose Perlin Noise chapter helped me discover this wonderful technical concept, playing around with which allowed me think of music visualizations in a very innovative manner.
